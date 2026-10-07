@@ -1,0 +1,510 @@
+[
+  {
+    "case_id": "F_001",
+    "category": "Financial Statement Consistency",
+    "sub_topic": "Accounting Equation",
+    "evidence": {
+      "current_assets": {"value": 450000, "unit": "USD"},
+      "net_ppe": {"value": 1200000, "unit": "USD"},
+      "goodwill": {"value": 150000, "unit": "USD"},
+      "current_liabilities": {"value": 300000, "unit": "USD"},
+      "long_term_debt": {"value": 850000, "unit": "USD"},
+      "retained_earnings": {"value": 400000, "unit": "USD"},
+      "common_stock": {"value": 200000, "unit": "USD"}
+    },
+    "question": "Calculate total assets and total liabilities plus equity. Is the balance sheet internally consistent under the accounting equation? Identify the discrepancy.",
+    "gold_answer": "Total assets = $1,800,000. Total liabilities plus equity = $1,750,000. The discrepancy is $50,000.",
+    "gold_reasoning": "Total assets = 450000 + 1200000 + 150000 = 1800000. Total liabilities = 300000 + 850000 = 1150000. Total equity = 400000 + 200000 = 600000. Liabilities plus equity = 1750000.",
+    "gold_interpretation": "Assets exceed liabilities plus equity by $50,000. The supplied figures are internally inconsistent, but the discrepancy alone does not identify which account is incorrect.",
+    "risk_type": "numerical_reasoning",
+    "severity": "medium",
+    "error_types": ["arithmetic_error", "accounting_equation_error"],
+    "currency": "USD",
+    "gold_numeric": [1800000, 1750000, 50000],
+    "formula_id": ["total_assets_sum", "accounting_equation", "discrepancy"],
+    "gold_claims": [
+      {"quantity": "total_assets", "unit": "USD", "formula_id": "total_assets_sum", "value": 1800000},
+      {"quantity": "liabilities_plus_equity", "unit": "USD", "formula_id": "accounting_equation", "value": 1750000},
+      {"quantity": "discrepancy", "unit": "USD", "formula_id": "discrepancy", "value": 50000}
+    ],
+    "numeric_tolerance": {
+      "absolute": 0.02,
+      "relative": 0.0001,
+      "rounding": "round_to_2_decimal_places_for_currency; ratios_and_rates_use_answer_specification"
+    },
+    "evaluation_notes": "Compare numeric values using gold_numeric and numeric_tolerance; use gold_answer and gold_interpretation for qualitative checks."
+  },
+  {
+    "case_id": "F_002",
+    "category": "Time Value of Money",
+    "sub_topic": "Compound Interest",
+    "evidence": {
+      "principal": {"value": 200000, "unit": "USD"},
+      "nominal_annual_rate": {"value": 0.04, "unit": "decimal_rate"},
+      "compounding_frequency": {"value": 4, "unit": "periods_per_year"},
+      "duration": {"value": 9, "unit": "months"}
+    },
+    "question": "Calculate the ending balance after 9 months using quarterly compounding. Explain why simple interest would produce a different result.",
+    "gold_answer": "$206,060.20 approximately.",
+    "gold_reasoning": "Quarterly rate = 0.04 / 4 = 0.01. Number of quarters = 3. Future value = 200000 × (1.01)^3 = $206060.20 approximately.",
+    "gold_interpretation": "Compound interest includes interest earned on previously accumulated interest. Simple interest would give $206,000, which is slightly lower.",
+    "risk_type": "numerical_reasoning",
+    "severity": "medium",
+    "error_types": ["wrong_interest_rate", "wrong_compounding_frequency", "arithmetic_error"],
+    "currency": "USD",
+    "gold_numeric": 206060.20,
+    "formula_id": ["compound_future_value"],
+    "gold_claims": [
+      {"quantity": "future_value", "unit": "USD", "formula_id": "compound_future_value", "value": 206060.20}
+    ],
+    "numeric_tolerance": {
+      "absolute": 0.02,
+      "relative": 0.0001,
+      "rounding": "round_to_2_decimal_places_for_currency; ratios_and_rates_use_answer_specification"
+    },
+    "evaluation_notes": "Compare numeric values using gold_numeric and numeric_tolerance; use gold_answer and gold_interpretation for qualitative checks."
+  },
+  {
+    "case_id": "F_003",
+    "category": "Efficiency Ratios",
+    "sub_topic": "Accounts Receivable Turnover",
+    "evidence": {
+      "net_credit_sales": {"value": 360000, "unit": "USD_per_year"},
+      "beginning_accounts_receivable": {"value": 30000, "unit": "USD"},
+      "ending_accounts_receivable": {"value": 50000, "unit": "USD"}
+    },
+    "question": "Calculate accounts receivable turnover and explain what the result suggests about collection efficiency.",
+    "gold_answer": "Average accounts receivable = $40,000. Accounts receivable turnover = 9 times.",
+    "gold_reasoning": "Average accounts receivable = (30000 + 50000) / 2 = 40000. Turnover = 360000 / 40000 = 9 times.",
+    "gold_interpretation": "The company generates annual net credit sales equal to nine times its average receivables. Whether this is strong collection performance depends on industry benchmarks and credit terms.",
+    "risk_type": "numerical_reasoning",
+    "severity": "medium",
+    "error_types": ["wrong_denominator", "arithmetic_error", "unsupported_interpretation"],
+    "currency": "USD",
+    "gold_numeric": [40000, 9],
+    "formula_id": ["average_receivables", "receivables_turnover"],
+    "gold_claims": [
+      {"quantity": "average_accounts_receivable", "unit": "USD", "formula_id": "average_receivables", "value": 40000},
+      {"quantity": "receivables_turnover", "unit": "times", "formula_id": "receivables_turnover", "value": 9}
+    ],
+    "numeric_tolerance": {
+      "absolute": 0.02,
+      "relative": 0.0001,
+      "rounding": "round_to_2_decimal_places_for_currency; ratios_and_rates_use_answer_specification"
+    },
+    "evaluation_notes": "Evaluate both the average receivables calculation and turnover ratio; use gold_interpretation for qualitative checks."
+  },
+  {
+    "case_id": "F_004",
+    "category": "Liquidity Ratios",
+    "sub_topic": "Current Ratio and Quick Ratio",
+    "evidence": {
+      "current_assets": {"value": 600000, "unit": "USD"},
+      "inventory": {"value": 180000, "unit": "USD"},
+      "cash_and_short_term_investments": {"value": 220000, "unit": "USD"},
+      "current_liabilities": {"value": 250000, "unit": "USD"}
+    },
+    "question": "Calculate the current ratio and quick ratio. Explain why the ratios differ.",
+    "gold_answer": "Current ratio = 2.40. Quick ratio = 1.68.",
+    "gold_reasoning": "Current ratio = 600000 / 250000 = 2.40. Quick ratio = (600000 - 180000) / 250000 = 1.68.",
+    "gold_interpretation": "The quick ratio excludes inventory and is therefore a more conservative measure of short-term liquidity under this simplified definition. Neither ratio alone guarantees that obligations can be paid on time.",
+    "risk_type": "numerical_reasoning",
+    "severity": "medium",
+    "error_types": ["ratio_confusion", "wrong_denominator", "unsupported_interpretation"],
+    "currency": "USD",
+    "gold_numeric": [2.4, 1.68],
+    "formula_id": ["current_ratio", "quick_ratio"],
+    "gold_claims": [
+      {"quantity": "current_ratio", "unit": "ratio", "formula_id": "current_ratio", "value": 2.4},
+      {"quantity": "quick_ratio", "unit": "ratio", "formula_id": "quick_ratio", "value": 1.68}
+    ],
+    "numeric_tolerance": {
+      "absolute": 0.02,
+      "relative": 0.0001,
+      "rounding": "round_to_2_decimal_places_for_currency; ratios_and_rates_use_answer_specification"
+    },
+    "evaluation_notes": "Compare numeric values using gold_numeric and numeric_tolerance; use gold_answer and gold_interpretation for qualitative checks."
+  },
+  {
+    "case_id": "F_005",
+    "category": "Solvency and Leverage",
+    "sub_topic": "Debt Ratios",
+    "evidence": {
+      "total_assets": {"value": 900000, "unit": "USD"},
+      "total_liabilities": {"value": 520000, "unit": "USD"}
+    },
+    "question": "Calculate the debt-to-assets and debt-to-equity ratios. Does having assets greater than liabilities automatically mean the company is financially safe?",
+    "gold_answer": "Equity = $380,000. Debt-to-assets = 57.78%. Debt-to-equity = approximately 1.37.",
+    "gold_reasoning": "Equity = 900000 - 520000 = 380000. Debt-to-assets = 520000 / 900000 = 57.78%. Debt-to-equity = 520000 / 380000 = 1.3684 approximately.",
+    "gold_interpretation": "Assets exceeding liabilities means reported equity is positive under these figures. It does not establish financial safety because liquidity, cash flow, debt maturities, interest coverage and other risks also matter.",
+    "risk_type": "financial_risk_reasoning",
+    "severity": "high",
+    "error_types": ["ratio_error", "leverage_misinterpretation", "overconfident_conclusion"],
+    "currency": "USD",
+    "gold_numeric": [380000, 0.5777777778, 1.3684210526],
+    "formula_id": ["equity_identity", "debt_to_assets", "debt_to_equity"],
+    "gold_claims": [
+      {"quantity": "equity", "unit": "USD", "formula_id": "equity_identity", "value": 380000},
+      {"quantity": "debt_to_assets", "unit": "decimal_ratio", "formula_id": "debt_to_assets", "value": 0.5777777778},
+      {"quantity": "debt_to_equity", "unit": "ratio", "formula_id": "debt_to_equity", "value": 1.3684210526}
+    ],
+    "numeric_tolerance": {
+      "absolute": 0.02,
+      "relative": 0.0001,
+      "rounding": "round_to_2_decimal_places_for_currency; ratios_and_rates_use_answer_specification"
+    },
+    "evaluation_notes": "Compare equity and both ratios with gold_numeric; use gold_interpretation to assess whether the financial-safety conclusion is appropriately cautious."
+  },
+  {
+    "case_id": "F_006",
+    "category": "Market Ratios",
+    "sub_topic": "EPS and P/E Ratio",
+    "evidence": {
+      "net_income": {"value": 600000, "unit": "USD"},
+      "preferred_dividends": {"value": 60000, "unit": "USD"},
+      "weighted_average_common_shares": {"value": 180000, "unit": "shares"},
+      "market_price_per_share": {"value": 45, "unit": "USD_per_share"}
+    },
+    "question": "Calculate earnings per share (EPS) and the price-to-earnings (P/E) ratio. Interpret the P/E ratio.",
+    "gold_answer": "EPS = $3.00. P/E ratio = 15.",
+    "gold_reasoning": "EPS = (600000 - 60000) / 180000 = $3.00. P/E = 45 / 3 = 15.",
+    "gold_interpretation": "The share price is 15 times annual earnings per share. A P/E of 15 does not by itself establish whether the stock is cheap or expensive.",
+    "risk_type": "numerical_reasoning",
+    "severity": "medium",
+    "error_types": ["preferred_dividend_omission", "share_count_error", "ratio_misinterpretation"],
+    "currency": "USD",
+    "gold_numeric": [3, 15],
+    "formula_id": ["earnings_per_share", "price_to_earnings"],
+    "gold_claims": [
+      {"quantity": "earnings_per_share", "unit": "USD_per_share", "formula_id": "earnings_per_share", "value": 3},
+      {"quantity": "price_to_earnings", "unit": "ratio", "formula_id": "price_to_earnings", "value": 15}
+    ],
+    "numeric_tolerance": {
+      "absolute": 0.02,
+      "relative": 0.0001,
+      "rounding": "round_to_2_decimal_places_for_currency; ratios_and_rates_use_answer_specification"
+    },
+    "evaluation_notes": "Compare EPS and P/E values using gold_numeric; use gold_interpretation to evaluate the explanation of the P/E ratio."
+  },
+  {
+    "case_id": "F_007",
+    "category": "Profitability Ratios",
+    "sub_topic": "Profit Margin, ROA and ROE",
+    "evidence": {
+      "net_sales": {"value": 1000000, "unit": "USD"},
+      "net_income": {"value": 320000, "unit": "USD"},
+      "beginning_assets": {"value": 900000, "unit": "USD"},
+      "ending_assets": {"value": 1100000, "unit": "USD"},
+      "beginning_equity": {"value": 400000, "unit": "USD"},
+      "ending_equity": {"value": 500000, "unit": "USD"}
+    },
+    "question": "Calculate net profit margin, return on average assets (ROA) and return on average equity (ROE). Explain what each measures.",
+    "gold_answer": "Net profit margin = 32%. ROA = 32%. ROE = approximately 71.11%.",
+    "gold_reasoning": "Profit margin = 320000 / 1000000 = 32%. Average assets = (900000 + 1100000) / 2 = 1000000. ROA = 320000 / 1000000 = 32%. Average equity = (400000 + 500000) / 2 = 450000. ROE = 320000 / 450000 = 71.11% approximately.",
+    "gold_interpretation": "Profit margin measures profit per dollar of sales. ROA measures profit relative to average assets. ROE measures profit relative to average shareholders' equity and can be affected by leverage.",
+    "risk_type": "multi_step_reasoning",
+    "severity": "high",
+    "error_types": ["wrong_average_balance", "ratio_error", "leverage_misinterpretation"],
+    "currency": "USD",
+    "gold_numeric": [0.32, 0.32, 0.7111111111],
+    "formula_id": ["net_profit_margin", "return_on_average_assets", "return_on_average_equity"],
+    "gold_claims": [
+      {"quantity": "net_profit_margin", "unit": "decimal_rate", "formula_id": "net_profit_margin", "value": 0.32},
+      {"quantity": "return_on_average_assets", "unit": "decimal_rate", "formula_id": "return_on_average_assets", "value": 0.32},
+      {"quantity": "return_on_average_equity", "unit": "decimal_rate", "formula_id": "return_on_average_equity", "value": 0.7111111111}
+    ],
+    "numeric_tolerance": {
+      "absolute": 0.02,
+      "relative": 0.0001,
+      "rounding": "round_to_2_decimal_places_for_currency; ratios_and_rates_use_answer_specification"
+    },
+    "evaluation_notes": "Compare all three profitability measures using gold_numeric; use gold_interpretation for qualitative checks."
+  },
+  {
+    "case_id": "F_008",
+    "category": "DuPont Analysis",
+    "sub_topic": "ROE Decomposition",
+    "evidence": {
+      "sales": {"value": 1200000, "unit": "USD"},
+      "net_income": {"value": 96000, "unit": "USD"},
+      "average_assets": {"value": 800000, "unit": "USD"},
+      "average_equity": {"value": 400000, "unit": "USD"}
+    },
+    "question": "Calculate profit margin, asset turnover, equity multiplier and ROE using the DuPont framework. Explain how the components relate to ROE.",
+    "gold_answer": "Profit margin = 8%; asset turnover = 1.5 times; equity multiplier = 2; ROE = 24%.",
+    "gold_reasoning": "Profit margin = 96000 / 1200000 = 8%. Asset turnover = 1200000 / 800000 = 1.5. Equity multiplier = 800000 / 400000 = 2. DuPont ROE = 0.08 × 1.5 × 2 = 0.24 = 24%.",
+    "gold_interpretation": "ROE reflects profitability, asset efficiency and financial leverage together. A higher ROE should be interpreted alongside the risks associated with leverage.",
+    "risk_type": "multi_step_reasoning",
+    "severity": "high",
+    "error_types": ["duPont_formula_error", "arithmetic_error", "leverage_misinterpretation"],
+    "currency": "USD",
+    "gold_numeric": [0.08, 1.5, 2, 0.24],
+    "formula_id": ["net_profit_margin", "asset_turnover", "equity_multiplier", "dupont_roe"],
+    "gold_claims": [
+      {"quantity": "net_profit_margin", "unit": "decimal_rate", "formula_id": "net_profit_margin", "value": 0.08},
+      {"quantity": "asset_turnover", "unit": "times", "formula_id": "asset_turnover", "value": 1.5},
+      {"quantity": "equity_multiplier", "unit": "ratio", "formula_id": "equity_multiplier", "value": 2},
+      {"quantity": "dupont_roe", "unit": "decimal_rate", "formula_id": "dupont_roe", "value": 0.24}
+    ],
+    "numeric_tolerance": {
+      "absolute": 0.02,
+      "relative": 0.0001,
+      "rounding": "round_to_2_decimal_places_for_currency; ratios_and_rates_use_answer_specification"
+    },
+    "evaluation_notes": "Compare the four DuPont components using gold_numeric; use gold_interpretation to evaluate the leverage discussion."
+  },
+  {
+    "case_id": "F_009",
+    "category": "Time Value of Money",
+    "sub_topic": "Future Value",
+    "evidence": {
+      "initial_deposit": {"value": 6500, "unit": "USD"},
+      "annual_interest_rate": {"value": 0.0656, "unit": "decimal_rate"},
+      "compounding_frequency": {"value": 1, "unit": "periods_per_year"},
+      "duration": {"value": 5, "unit": "years"},
+      "additional_deposits": {"value": 0, "unit": "USD"},
+      "withdrawals": {"value": 0, "unit": "USD"}
+    },
+    "question": "An investor deposits $6,500 into an account that earns 6.56% interest per year, compounded annually. No additional deposits or withdrawals are made. How much will the investment be worth at the end of 5 years?",
+    "gold_answer": "$8,930.68 approximately.",
+    "gold_reasoning": "Future value = 6500 × (1 + 0.0656)^5 = $8,930.68 approximately.",
+    "gold_interpretation": "The investment earns compound interest annually. Interest accumulated in earlier years also earns interest in subsequent years.",
+    "risk_type": "numerical_reasoning",
+    "severity": "medium",
+    "error_types": ["simple_interest_instead_of_compound", "wrong_interest_rate", "wrong_exponent", "arithmetic_error"],
+    "currency": "USD",
+    "gold_numeric": 8930.68,
+    "formula_id": ["compound_future_value"],
+    "gold_claims": [
+      {"quantity": "future_value", "unit": "USD", "formula_id": "compound_future_value", "value": 8930.68}
+    ],
+    "numeric_tolerance": {
+      "absolute": 0.02,
+      "relative": 0.0001,
+      "rounding": "round_to_2_decimal_places_for_currency; ratios_and_rates_use_answer_specification"
+    },
+    "evaluation_notes": "Compare numeric values using gold_numeric and numeric_tolerance; use gold_answer and gold_interpretation for qualitative checks."
+  },
+  {
+    "case_id": "F_010",
+    "category": "Time Value of Money",
+    "sub_topic": "Present Value",
+    "evidence": {
+      "future_cash_flow": {"value": 15000, "unit": "USD"},
+      "annual_discount_rate": {"value": 0.06, "unit": "decimal_rate"},
+      "time_until_cash_flow": {"value": 5, "unit": "years"}
+    },
+    "question": "Calculate the approximate present value of the future cash flow. Explain why present value is lower than the future amount.",
+    "gold_answer": "$11,208.90 approximately.",
+    "gold_reasoning": "Present value = 15000 / (1.06)^5 = $11208.90 approximately.",
+    "gold_interpretation": "At a positive discount rate, a future cash flow has a lower present value because receiving money later has an opportunity cost.",
+    "risk_type": "numerical_reasoning",
+    "severity": "medium",
+    "error_types": ["discounting_instead_of_compounding_confusion", "wrong_exponent", "arithmetic_error"],
+    "currency": "USD",
+    "gold_numeric": 11208.90,
+    "formula_id": ["present_value_single_cash_flow"],
+    "gold_claims": [
+      {"quantity": "present_value", "unit": "USD", "formula_id": "present_value_single_cash_flow", "value": 11208.90}
+    ],
+    "numeric_tolerance": {
+      "absolute": 0.02,
+      "relative": 0.0001,
+      "rounding": "round_to_2_decimal_places_for_currency; ratios_and_rates_use_answer_specification"
+    },
+    "evaluation_notes": "Compare numeric values using gold_numeric and numeric_tolerance; use gold_answer and gold_interpretation for qualitative checks."
+  },
+  {
+    "case_id": "F_011",
+    "category": "Time Value of Money",
+    "sub_topic": "Effect of Compounding Frequency",
+    "evidence": {
+      "principal": {"value": 9000, "unit": "USD"},
+      "nominal_annual_interest_rate": {"value": 0.05, "unit": "decimal_rate"},
+      "duration": {"value": 1, "unit": "years"},
+      "compounding_frequencies": {
+        "annual": {"value": 1, "unit": "periods_per_year"},
+        "quarterly": {"value": 4, "unit": "periods_per_year"},
+        "monthly": {"value": 12, "unit": "periods_per_year"}
+      }
+    },
+    "question": "Calculate the approximate ending value with (a) annual compounding, (b) quarterly compounding and (c) monthly compounding. Which produces the highest future value, and why?",
+    "gold_answer": "Annual: $9,450.00. Quarterly: $9,458.51 approximately. Monthly: $9,460.46 approximately. Monthly compounding produces the highest value.",
+    "gold_reasoning": "Annual = 9000 × 1.05 = 9450. Quarterly = 9000 × (1 + 0.05/4)^4 = 9458.51 approximately. Monthly = 9000 × (1 + 0.05/12)^12 = 9460.46 approximately.",
+    "gold_interpretation": "At the same nominal annual rate and over the same period, more frequent compounding produces a slightly higher future value.",
+    "risk_type": "comparative_numerical_reasoning",
+    "severity": "medium",
+    "error_types": ["compounding_frequency_error", "wrong_periodic_rate", "arithmetic_error"],
+    "currency": "USD",
+    "gold_numeric": [9450, 9458.51, 9460.46],
+    "formula_id": ["future_value_compounding"],
+    "gold_claims": [
+      {"quantity": "annual_compounding_future_value", "unit": "USD", "formula_id": "future_value_compounding", "value": 9450},
+      {"quantity": "quarterly_compounding_future_value", "unit": "USD", "formula_id": "future_value_compounding", "value": 9458.51},
+      {"quantity": "monthly_compounding_future_value", "unit": "USD", "formula_id": "future_value_compounding", "value": 9460.46}
+    ],
+    "numeric_tolerance": {
+      "absolute": 0.02,
+      "relative": 0.0001,
+      "rounding": "round_to_2_decimal_places_for_currency; ratios_and_rates_use_answer_specification"
+    },
+    "evaluation_notes": "Compare all three future values using gold_numeric; use gold_interpretation for the explanation of compounding frequency."
+  },
+  {
+    "case_id": "F_012",
+    "category": "Time Value of Money",
+    "sub_topic": "Rule of 72",
+    "evidence": {
+      "annual_return_scenarios": [
+        {"value": 0.06, "unit": "decimal_rate"},
+        {"value": 0.12, "unit": "decimal_rate"}
+      ],
+      "rule_of_72_constant": {"value": 72, "unit": "percentage_points_approximation"}
+    },
+    "question": "Estimate the doubling time at a 6% annual return. Then estimate the doubling time at 12%. Explain the relationship between growth rate and doubling time.",
+    "gold_answer": "At 6%: approximately 12 years. At 12%: approximately 6 years.",
+    "gold_reasoning": "Rule of 72: approximate doubling time = 72 / annual percentage return. Therefore, 72 / 6 = 12 years and 72 / 12 = 6 years.",
+    "gold_interpretation": "Doubling time is approximately inversely related to the annual growth rate. The Rule of 72 is an estimate, not an exact prediction.",
+    "risk_type": "numerical_reasoning",
+    "severity": "low",
+    "error_types": ["rule_of_72_error", "percentage_conversion_error", "overstating_estimate_precision"],
+    "currency": null,
+    "gold_numeric": [12, 6],
+    "formula_id": ["rule_of_72"],
+    "gold_claims": [
+      {"quantity": "doubling_time_at_6_percent", "unit": "years", "formula_id": "rule_of_72", "value": 12},
+      {"quantity": "doubling_time_at_12_percent", "unit": "years", "formula_id": "rule_of_72", "value": 6}
+    ],
+    "numeric_tolerance": {
+      "absolute": 0.0001,
+      "relative": 0.0001,
+      "rounding": "round_to_2_decimal_places_for_currency; ratios_and_rates_use_answer_specification"
+    },
+    "evaluation_notes": "Compare both estimates using gold_numeric; the answer should identify the Rule of 72 as an approximation."
+  },
+  {
+    "case_id": "F_013",
+    "category": "Time Value of Money",
+    "sub_topic": "Perpetuity Valuation",
+    "evidence": {
+      "annual_scholarship_payment": {"value": 20000, "unit": "GBP_per_year"},
+      "annual_return": {"value": 0.05, "unit": "decimal_rate"},
+      "payment_timing": "end_of_year",
+      "duration": "indefinite"
+    },
+    "question": "How much must the university invest today to fund the annual scholarship indefinitely without spending the original principal? Explain why the required investment depends on the expected rate of return.",
+    "gold_answer": "£400,000, assuming the first payment occurs one year from now and the 5% return is sustainable.",
+    "gold_reasoning": "Perpetuity present value = annual payment / annual discount rate = 20000 / 0.05 = £400000.",
+    "gold_interpretation": "A higher sustainable return reduces the principal required to fund the same annual payment; a lower return increases it. The result depends on the assumptions being met.",
+    "risk_type": "financial_valuation",
+    "severity": "high",
+    "error_types": ["perpetuity_formula_error", "percentage_conversion_error", "unsupported_assumption"],
+    "currency": "GBP",
+    "gold_numeric": 400000,
+    "formula_id": ["perpetuity_present_value"],
+    "gold_claims": [
+      {"quantity": "perpetuity_present_value", "unit": "GBP", "formula_id": "perpetuity_present_value", "value": 400000}
+    ],
+    "numeric_tolerance": {
+      "absolute": 0.02,
+      "relative": 0.0001,
+      "rounding": "round_to_2_decimal_places_for_currency; ratios_and_rates_use_answer_specification"
+    },
+    "evaluation_notes": "Compare numeric values using gold_numeric and numeric_tolerance; use gold_answer and gold_interpretation for qualitative checks."
+  },
+  {
+    "case_id": "F_014",
+    "category": "Time Value of Money",
+    "sub_topic": "Annuity and Immediate Contribution",
+    "evidence": {
+      "annual_contribution": {"value": 6555, "unit": "GBP"},
+      "immediate_contribution_alternative": {"value": 6000, "unit": "GBP"},
+      "annual_interest_rate": {"value": 0.0658, "unit": "decimal_rate"},
+      "number_of_years": {"value": 8, "unit": "years"},
+      "ordinary_annuity_payment_timing": "end_of_year",
+      "alternative_first_payment_timing": "immediately_at_time_zero",
+      "alternative_remaining_payments": "6555 GBP at the end of years 2 through 8"
+    },
+    "question": "An employee is considering saving £6,555 at the end of every year for eight years in an account earning 6.58% interest annually. Calculate the amount accumulated at the end of year eight. How would the result change if a £6,000 contribution were made immediately rather than at the end of the first year? Explain whether there is any difference between these two payment arrangements.",
+    "gold_answer": "Eight end-of-year contributions of £6,555 accumulate to approximately £66,244.09. Under the alternative arrangement, with £6,000 invested immediately and £6,555 deposited at the end of each of the next seven years, the ending balance is approximately £65,993.83.",
+    "gold_reasoning": "Ordinary annuity future value = 6555 × [((1 + 0.0658)^8 - 1) / 0.0658] = approximately £66,244.09. Alternative future value = 6000 × (1.0658)^8 + 6555 × [((1.0658)^7 - 1) / 0.0658] = approximately £65,993.83.",
+    "gold_interpretation": "The alternative invests £6,000 immediately, allowing it to earn interest for eight years, but the initial contribution is £555 smaller than the original £6,555 contribution. Under this specified interpretation, the alternative ending balance is approximately £250.26 lower. Both contribution size and payment timing affect the accumulated value.",
+    "risk_type": "multi_step_reasoning",
+    "severity": "high",
+    "error_types": ["ordinary_annuity_vs_immediate_payment_confusion", "wrong_number_of_periods", "payment_amount_confusion", "arithmetic_error"],
+    "currency": "GBP",
+    "gold_numeric": [66244.09, 65993.83, 250.26],
+    "formula_id": ["ordinary_annuity_future_value", "immediate_payment_future_value", "difference_between_payment_arrangements"],
+    "gold_claims": [
+      {"quantity": "ordinary_annuity_future_value", "unit": "GBP", "formula_id": "ordinary_annuity_future_value", "value": 66244.09},
+      {"quantity": "alternative_future_value", "unit": "GBP", "formula_id": "immediate_payment_future_value", "value": 65993.83},
+      {"quantity": "absolute_difference", "unit": "GBP", "formula_id": "difference_between_payment_arrangements", "value": 250.26}
+    ],
+    "numeric_tolerance": {
+      "absolute": 0.02,
+      "relative": 0.0001,
+      "rounding": "round_to_2_decimal_places_for_currency; ratios_and_rates_use_answer_specification"
+    },
+    "evaluation_notes": "The alternative calculation assumes a £6,000 immediate contribution followed by seven £6,555 end-of-year contributions. Compare all three numeric results using gold_numeric and numeric_tolerance; use gold_answer and gold_interpretation for qualitative checks."
+  },
+  {
+    "case_id": "F_015",
+    "category": "Loan Mathematics",
+    "sub_topic": "Loan Amortisation",
+    "evidence": {
+      "loan_principal": {"value": 30341.5, "unit": "GBP"},
+      "nominal_annual_interest_rate": {"value": 0.0675, "unit": "decimal_rate"},
+      "compounding_frequency": {"value": 12, "unit": "periods_per_year"},
+      "number_of_monthly_payments": {"value": 36, "unit": "payments"}
+    },
+    "question": "A startup borrows £30,341.50 to purchase equipment. The loan carries a nominal annual interest rate of 6.75%, compounded monthly, and must be repaid through 36 equal monthly payments. Calculate the monthly repayment. Give a proper explanation of how each payment is divided between interest and principal, and why the outstanding loan balance changes over time.",
+    "gold_answer": "The monthly repayment is approximately £933.39, subject to the lender's rounding and payment conventions.",
+    "gold_reasoning": "Monthly interest rate = 0.0675 / 12 = 0.005625, or 0.5625%. Monthly payment = 30341.50 × 0.005625 / [1 - (1.005625)^(-36)] = approximately £933.39.",
+    "gold_interpretation": "Each monthly payment first covers interest accrued on the outstanding principal. The remainder reduces principal. With a fixed rate and regular equal payments, the interest portion generally decreases over time as the outstanding balance falls, while the principal portion increases. The balance declines until the loan is repaid, subject to payment and rounding conventions.",
+    "risk_type": "multi_step_numerical_reasoning",
+    "severity": "high",
+    "error_types": ["loan_payment_formula_error", "wrong_monthly_rate", "wrong_loan_principal", "amortisation_misinterpretation"],
+    "currency": "GBP",
+    "gold_numeric": 933.39,
+    "formula_id": ["loan_amortisation_payment"],
+    "gold_claims": [
+      {"quantity": "monthly_repayment", "unit": "GBP_per_month", "formula_id": "loan_amortisation_payment", "value": 933.39}
+    ],
+    "numeric_tolerance": {
+      "absolute": 0.02,
+      "relative": 0.0001,
+      "rounding": "round_to_2_decimal_places_for_currency; ratios_and_rates_use_answer_specification"
+    },
+    "evaluation_notes": "Compare the monthly repayment using gold_numeric and numeric_tolerance; use gold_answer and gold_interpretation to evaluate the amortisation explanation."
+  },
+  {
+    "case_id": "F_016",
+    "category": "Interest Rate Comparison",
+    "sub_topic": "Effective Annual Rate",
+    "evidence": {
+      "lender_a_nominal_annual_rate": {"value": 0.15, "unit": "decimal_rate"},
+      "lender_a_compounding_frequency": {"value": 12, "unit": "periods_per_year"},
+      "lender_b_effective_annual_rate": {"value": 0.154, "unit": "decimal_rate"}
+    },
+    "question": "A lender advertises an annual interest rate of 15%, compounded monthly. A competing lender offers an effective annual interest rate of 15.4%. Calculate the effective annual rate of the first loan and determine which loan has the lower annual borrowing cost, assuming all other terms are identical. Explain why the nominal annual rate may be misleading when comparing loans.",
+    "gold_answer": "Lender A's effective annual rate is approximately 16.08%. Lender B's effective annual rate of 15.4% is lower.",
+    "gold_reasoning": "EAR = (1 + 0.15/12)^12 - 1 = approximately 0.1607545, or 16.08%. Compare 16.08% with 15.4%; Lender B has the lower effective annual rate under the stated assumptions.",
+    "gold_interpretation": "The nominal annual rate does not fully reflect the effect of intra-year compounding. Comparing effective annual rates is more informative when the other loan terms are identical.",
+    "risk_type": "comparative_numerical_reasoning",
+    "severity": "high",
+    "error_types": ["nominal_vs_effective_rate_confusion", "compounding_formula_error", "incorrect_cost_comparison"],
+    "currency": null,
+    "gold_numeric": [0.1608, 0.154],
+    "formula_id": ["effective_annual_rate", "effective_rate_comparison"],
+    "gold_claims": [
+      {"quantity": "lender_a_effective_annual_rate", "unit": "decimal_rate", "formula_id": "effective_annual_rate", "value": 0.1608},
+      {"quantity": "lender_b_effective_annual_rate", "unit": "decimal_rate", "formula_id": "effective_rate_comparison", "value": 0.154}
+    ],
+    "numeric_tolerance": {
+      "absolute": 0.0001,
+      "relative": 0.0001,
+      "rounding": "rates_are_stored_as_decimal_values; report rates as percentages rounded to 2 decimal places"
+    },
+    "evaluation_notes": "Compare both effective annual rates using gold_numeric and numeric_tolerance; use gold_interpretation to assess the explanation of nominal versus effective rates."
+  }
+]
