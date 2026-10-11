@@ -40,6 +40,11 @@ using a general-purpose benchmark. Evaluation willtry to cover numerical correct
 reasoning, evidence support, risk severity, calibration, and human deferral.
 Time- 11.45 pm
 Completed the reading of  FinanceBench archive paper.
+### 09/10/26-Dataset
+FINQA: A Dataset of Numerical Reasoning over Financial Data(Paper reading)
+Authors propose a new large scale data set of question answers pairing by experts and they aim to automate the analysis of large corpus data.
+### 11/10/26-Z3 solver 
+https://colab.research.google.com/github/philzook58/z3_tutorial/blob/master/Z3%20Tutorial.ipynb#scrollTo=od9YqkQmeJIx- I took some idea and learn in detail how to solve verification problems by using z3 solver. This tutorial is excellent.I can use it in project also like to make some function and check z3 whether LLM is follow the logic or not.
 
 ### Files changed
 - data/pilot_cases.json
