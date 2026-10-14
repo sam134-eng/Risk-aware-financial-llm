@@ -54,8 +54,28 @@ Financial Annotators make the numerical reasoning program of the questions and a
 ### New Idea
 I pan to use a Z3-based verifier for explicitly represented financial constraints, together with split conformal prediction and a risk-aware deferral policy as it can help identify unreliable financial LLM outputs and route uncertain or high-risk cases for further review.
 ### 13/10/26
-Revise the documentation of Python patlib module,Relative paths etc..
+Revise the documentation of Python, patlib module,Relative paths etc..
 
+# Work Log — 2026-10-14
+
+## Completed
+- Prepared a 134-example subset from FinQA.
+- Source records: 1,147.
+- Usable candidates: 1,133.
+- Sampling seed: 2025.
+- Project IDs: F_017 to F_150.
+- JSON syntax check completed.
+- Validator script executed; validation details still to be inspected.
+
+## Next
+- Inspect schema and validator checks.
+- Define leakage-free development, calibration, and test splits.
+- Implement Answer Model and independent Judge.
+- Implement deterministic arithmetic verification using Z3.
+- Implement split conformal calibration.
+- Implement risk-aware human deferral.
+- Compare methods on held-out examples.
+"@ | Set-Content research_logs/2026-10-14.md
 
 
 ### Files changed
