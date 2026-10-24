@@ -66,7 +66,19 @@ Revise the documentation of Python, patlib module,Relative paths etc..
 - Project IDs: F_017 to F_150.
 - JSON syntax check completed.
 - Validator script executed; validation details still to be inspected.
+# Work Log — 2026-10-21 &22
+Read the research paper-Human-AI Complementarity(Rishub Jain,)
+They combine Human rater and Ai raters and according to this paper Human and AI can leverage complementarity by two steps i Hybridization 1)By ensamblong or aggregating human and AI prediction 2) Defer some task to the human based on Ai confidence. In this confidence based Routingt also what is interesting here they don't consider human as some static object. A human's performancemay improved by using Ai rater's assistance.
+# PROJECT-
+In this project we will try to see whether confidence based delegation improve finance llm performance.
+Date: 24 October 2026
 
+Status: Completed.
+
+The benchmark merge script combines two datasets: 16 manually prepared financial reasoning cases and 134 FinQA-derived cases, producing 150 cases in total. The script checks for missing or duplicate case identifiers, missing questions, and missing reference answers before saving the combined dataset.
+
+Output: data/processed/combined_benchmark_v1.json
+The original input files are preserved. The merged benchmark is intended for subsequent baseline evaluation and experiments involving numerical correctness, evidence support, verification, and risk-aware deferral.
 ## Next
 - Inspect schema and validator checks.
 - Define leakage-free development, calibration, and test splits.
