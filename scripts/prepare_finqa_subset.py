@@ -32,10 +32,10 @@ ROOT = Path(__file__).resolve().parents[1]
 
 # Specify input and output paths
 SOURCE = ROOT / "external" / "FinQA" / "dataset" / "test.json"
-OUTPUT = ROOT / "data" / "finqa_subset.json"
+OUTPUT = ROOT / "data" /"finqa_subset_484.json"
 
 # Configuration sampling
-TARGET_SIZE = 134
+TARGET_SIZE = 484
 SEED = 2025
 START_CASE_NUMBER = 17
 

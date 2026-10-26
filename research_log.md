@@ -87,9 +87,49 @@ The original input files are preserved. The merged benchmark is intended for sub
 - Implement split conformal calibration.
 - Implement risk-aware human deferral.
 - Compare methods on held-out examples.
-"@ | Set-Content research_logs/2026-10-14.md
+### Z3 Resource-25/10/26
+
+I identified the official Microsoft Z3 Guide repository:
+
+https://github.com/microsoft/z3guide
+
+The repository contains tutorials and learning resources for Z3, an SMT (Satisfiability Modulo Theories) solver. The documentation includes an SMT-LIB tutorial programming examples, and material on using the Z3 API in Python.
+
+ Key observations:
+
+Z3 can determine whether a collection of logical and mathematical constraints is satisfiable.
+
+Z3 supports mathematical representations, including real-valued arithmetic.
+
+The Python API (Z3Py) allows constraints to be defined and checked programmatically.
+
+The solver can return sat, unsat, or unknown, depending on the constraints and solver outcome.
+
+Z3 is intended to be used as a component within a larger verification or analysis system.
+
+Relevance to my project:
+
+My project investigates whether formal verification can help identify arithmetic inconsistencies in financial question-answering systems.
+
+The initial implementation uses Z3 to check simple-interest calculations against explicitly supplied inputs and a specified tolerance. This is a limited prototype: it checks arithmetic consistency under a particular formula and does not establish that the financial assumptions themselves are correct.
+
+The planned next steps are to test the verifier systematically, investigate conformal uncertainty estimation for suitable numerical predictions, and integrate the verification results into a risk-aware routing mechanism.
+### Date- 26 October 2026
+
+## Combined Benchmark — 500 Cases
 
 
-### Files changed
-- data/pilot_cases.json
-- research_log.md
+##Status:## Benchmark generation completed successfully.
+
+- Manually prepared cases: 16
+- FinQA-derived cases: 484
+- Total cases: 500
+- Output: `data/processed/combined_benchmark_500.json`
+
+The merge script combines both sources and checks for missing or duplicate case identifiers, missing questions, and missing reference answers before saving the output. The original input datasets remain separate.
+
+## Next milestone: 
+Implement a cached baseline evaluator, run a small pilot, and measure numerical answer correctness before integrating Z3 verification and risk-aware deferral.
+
+## Caveat: 
+Successful generation does not independently establish reference-answer correctness, annotation quality, or permission to redistribute the derived dataset.

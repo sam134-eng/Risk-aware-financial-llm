@@ -6,10 +6,10 @@ project_folder = Path(__file__).resolve().parent.parent
 
 # Input dataset
 manual_file = project_folder / "data" / "pilot_cases.json"
-finqa_file = project_folder / "data" / "finqa_subset.json"
+finqa_file = project_folder / "data" /  "finqa_subset_484.json"
 
 # Output file name
-output_file = project_folder / "data" / "processed" / "combined_benchmark_v1.json"
+output_file = project_folder / "data" / "processed" / "combined_benchmark_500.json"
 
 
 def load_cases(file_path):
