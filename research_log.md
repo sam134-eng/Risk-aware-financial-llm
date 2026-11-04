@@ -117,6 +117,11 @@ The planned next steps are to test the verifier systematically, investigate conf
 ### Date- 26 October 2026
 
 ## Combined Benchmark — 500 Cases
+### Date- 29 October 2026-Experiment design
+I made an Evidence-aware LLM baseline by run_baseline.py script. In our dataset there is table, gold answer,gold-reasoning and evidence context.
+B0 — Evidence-aware LLM baseline
+
+Question + financial evidence → model answer. On this first model I won't share gold reasoning or gold answer only evidence context so that I can check how the model is performing without verification.
 
 
 ##Status:## Benchmark generation completed successfully.
@@ -127,6 +132,13 @@ The planned next steps are to test the verifier systematically, investigate conf
 - Output: `data/processed/combined_benchmark_500.json`
 
 The merge script combines both sources and checks for missing or duplicate case identifiers, missing questions, and missing reference answers before saving the output. The original input datasets remain separate.
+### 01-11-2026
+I was checking baseline_v2, there is some difference on case 21 of gold answer and gold-numeric. I did the calculation by myself and saw that the logic is fine and gold-numeric is fine. There must be some typo in the gold-answer data.
+025	Model −9.03%, reference −5%
+the question does not specify years, and the model's 2014–2015 calculation is plausible given the evidence.Model use 2014-15 while gold refrence use 2013 and 2014.
+Today read the paper-"LOGIC-LM: Empowering Large Language Models with
+Symbolic Solvers for Faithful Logical Reasoning"
+
 
 ## Next milestone: 
 Implement a cached baseline evaluator, run a small pilot, and measure numerical answer correctness before integrating Z3 verification and risk-aware deferral.
