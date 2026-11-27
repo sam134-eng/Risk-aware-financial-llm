@@ -1,0 +1,48 @@
+{
+  "n_cases": 80,
+  "labels": {
+    "gold_reference_issue": 13,
+    "unit_or_scale_error": 1,
+    "unsupported_number": 3,
+    "arithmetic_error": 7,
+    "rounding_only": 7,
+    "sign_or_direction_error": 2,
+    "wrong_value_unexplained": 22,
+    "refusal": 2,
+    "no_final_answer": 3,
+    "not_formalizable_by_stage1": 53
+  },
+  "cases_with_no_label_and_correct": 31,
+  "arithmetic_vs_answer_on_extracted_equations": {
+    "ALL_CHECKED_PASS|inputs_supported": {
+      "cases": 19,
+      "answer_correct": 12
+    },
+    "ARITHMETIC_FAIL_PRESENT|inputs_supported": {
+      "cases": 5,
+      "answer_correct": 4
+    },
+    "ALL_CHECKED_PASS|some_inputs_not_found": {
+      "cases": 1,
+      "answer_correct": 1
+    },
+    "ARITHMETIC_FAIL_PRESENT|some_inputs_not_found": {
+      "cases": 2,
+      "answer_correct": 0
+    }
+  },
+  "original_verifier_status_vs_answer_correct_500": {
+    "NOT_APPLICABLE": {
+      "cases": 337,
+      "answer_correct": 244
+    },
+    "PASS": {
+      "cases": 122,
+      "answer_correct": 93
+    },
+    "FAIL": {
+      "cases": 24,
+      "answer_correct": 12
+    }
+  }
+}

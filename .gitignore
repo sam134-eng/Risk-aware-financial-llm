@@ -2,3 +2,14 @@
 .env 
 __pycache__/
 *.pyc
+
+# local environment, secrets and test runs
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+.env
+*.key
+results/test_run/
+results/test_openai/

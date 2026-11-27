@@ -1,0 +1,17 @@
+file,case_id,grounding,grounding_errors,execution,claimed,computed,answer_outcome,computed_answer_correct,gold_answer,gold_flag,primary_class
+pilot_8shot.jsonl,F_011,NOT_APPLICABLE,NOTHING_TO_GROUND,NO_TARGET,,,,,"Annual: $9,450.00. Quarterly: $9,458.51 approximately. Monthly: $9,460.46 approximately. Monthly compounding produces the highest value.",,ABSTAIN
+pilot_8shot.jsonl,F_015,PASS,,MISMATCH,916.35,933.393,NOT_EVALUATED,,"The monthly repayment is approximately £933.39, subject to the lender's rounding and payment conventions.",,CLAIM_MISMATCH
+pilot_8shot.jsonl,F_017,PASS,,OK,0.5766,0.576560,ROUNDING_ONLY,True,57.65%,,CORRECT
+pilot_8shot.jsonl,F_027,PASS,,MISMATCH,251375,251600,CORRECT,True,251599.67,,CLAIM_MISMATCH
+pilot_8shot.jsonl,F_033,PASS,,OK,-18.5,-18.5185,CORRECT,True,-19%,,CORRECT
+pilot_8shot.jsonl,F_071,PASS,,OK,-7.51,-7.5100,CORRECT,True,-7.51%,,CORRECT
+pilot_8shot.jsonl,F_089,PASS,,MISMATCH,0.72,0.263415,CORRECT,True,26.3%,,CLAIM_MISMATCH
+pilot_8shot.jsonl,F_098,PASS,,OK,792.5,792.495,CORRECT,True,792.5,,CORRECT
+pilot_8shot.jsonl,F_106,PASS,,OK,0.038,0.0380435,SIGN_CONVENTION,True,-3.8%,,CORRECT
+pilot_8shot.jsonl,F_127,PASS,,OK_ROUNDED_CLAIM,0.2068,0.206866,CORRECT,True,20.7%,,CORRECT
+pilot_8shot.jsonl,F_151,PASS,,OK,138290,138290,INCORRECT,False,3829,gold_answer 3829 vs program/gold_numeric 38290,GOLD_DISPUTED
+pilot_8shot.jsonl,F_183,PASS,,OK,2.78,2.77778,INCORRECT,False,2.7%,program adds instead of subtracting; gold_answer close to correct 2.78%,GOLD_DISPUTED
+pilot_8shot.jsonl,F_189,PASS,,OK,0.0265,0.0265152,CORRECT,True,3%,gold_answer 3% vs computed 2.65%,CORRECT
+pilot_8shot.jsonl,F_278,PASS,,OK_ROUNDED_CLAIM,0.18,0.180312,CORRECT,True,18%,,CORRECT
+pilot_8shot.jsonl,F_332,PASS,,OK,0.1071,0.107143,CORRECT,True,10.7%,program returns 9.3 instead of a percentage change,CORRECT
+pilot_8shot.jsonl,F_376,PASS,,OK,-88.64,-88.6364,INCORRECT,False,780%,direction reversed: gold +780% vs -88.64%,GOLD_DISPUTED

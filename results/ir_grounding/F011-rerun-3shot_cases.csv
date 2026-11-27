@@ -1,0 +1,2 @@
+file,case_id,grounding,grounding_errors,execution,claimed,computed,answer_outcome,computed_answer_correct,gold_answer,gold_flag,primary_class
+rerun_F011_3shot.jsonl,F_011,PASS,,MISMATCH,9469.51,9458.51,NOT_EVALUATED,,"Annual: $9,450.00. Quarterly: $9,458.51 approximately. Monthly: $9,460.46 approximately. Monthly compounding produces the highest value.",,CLAIM_MISMATCH

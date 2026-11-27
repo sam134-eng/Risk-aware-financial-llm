@@ -1,0 +1,6 @@
+pytest>=7
+matplotlib>=3.7
+z3-solver>=4.12      # Stage 1 v2 / original verifier
+# optional, only for running models / the judge:
+# openai>=1.40
+# anthropic>=0.40

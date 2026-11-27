@@ -1,0 +1,81 @@
+case_id,outcome,lenient_correct,labels,review_flag,stage1_arithmetic,stage1_grounding
+F_017,ROUNDING_ONLY,True,rounding_only,,ALL_CHECKED_PASS,ALL_INPUTS_IN_EVIDENCE
+F_026,CORRECT,True,,,ALL_CHECKED_PASS,ALL_INPUTS_IN_EVIDENCE
+F_027,ROUNDING_ONLY,True,arithmetic_error;rounding_only,,ARITHMETIC_FAIL_PRESENT,ALL_INPUTS_IN_EVIDENCE
+F_033,CORRECT,True,,,ALL_CHECKED_PASS,INPUTS_IN_OR_DERIVED_FROM_EVIDENCE
+F_037,NOT_EVALUATED,False,not_formalizable_by_stage1,,NO_EXPRESSION,NO_EXPRESSION
+F_048,INCORRECT,False,gold_reference_issue;wrong_value_unexplained;not_formalizable_by_stage1,gold divides compensation expense by shares (not a share price),NO_EXPRESSION,NO_EXPRESSION
+F_057,INCORRECT,False,wrong_value_unexplained;not_formalizable_by_stage1,,NO_EXPRESSION,NO_EXPRESSION
+F_067,SIGN_MISMATCH,False,sign_or_direction_error;not_formalizable_by_stage1,,NO_EXPRESSION,NO_EXPRESSION
+F_071,CORRECT,True,unsupported_number,,ALL_CHECKED_PASS,SOME_INPUTS_NOT_FOUND
+F_073,SCALE_MISMATCH,False,unit_or_scale_error;not_formalizable_by_stage1,,NO_EXPRESSION,NO_EXPRESSION
+F_076,ROUNDING_ONLY,True,rounding_only;not_formalizable_by_stage1,,NO_EXPRESSION,NO_EXPRESSION
+F_086,INCORRECT,False,wrong_value_unexplained;not_formalizable_by_stage1,,NO_EXPRESSION,NO_EXPRESSION
+F_089,INCORRECT,False,wrong_value_unexplained,,ALL_CHECKED_PASS,ALL_INPUTS_IN_EVIDENCE
+F_098,CORRECT,True,,,ALL_CHECKED_PASS,ALL_INPUTS_IN_EVIDENCE
+F_100,CORRECT,True,not_formalizable_by_stage1,,NO_EXPRESSION,NO_EXPRESSION
+F_106,SIGN_CONVENTION,True,,,ALL_CHECKED_PASS,ALL_INPUTS_IN_EVIDENCE
+F_113,CORRECT,True,not_formalizable_by_stage1,,NO_EXPRESSION,NO_EXPRESSION
+F_125,CORRECT,True,arithmetic_error,,ARITHMETIC_FAIL_PRESENT,ALL_INPUTS_IN_EVIDENCE
+F_127,CORRECT,True,arithmetic_error,,ARITHMETIC_FAIL_PRESENT,ALL_INPUTS_IN_EVIDENCE
+F_128,INCORRECT,False,wrong_value_unexplained;not_formalizable_by_stage1,,NO_EXPRESSION,NO_EXPRESSION
+F_131,ROUNDING_ONLY,True,rounding_only;not_formalizable_by_stage1,,NO_EXPRESSION,NO_EXPRESSION
+F_147,INCORRECT,False,gold_reference_issue;wrong_value_unexplained,reference uses 2006-2007 values for a 2005-2006 question,ALL_CHECKED_PASS,INPUTS_IN_OR_DERIVED_FROM_EVIDENCE
+F_148,CORRECT,True,not_formalizable_by_stage1,,NO_EXPRESSION,NO_EXPRESSION
+F_151,INCORRECT,False,gold_reference_issue;wrong_value_unexplained,gold_answer 3829 vs program/gold_numeric 38290,ALL_CHECKED_PASS,INPUTS_IN_OR_DERIVED_FROM_EVIDENCE
+F_160,ROUNDING_ONLY,True,rounding_only,,ALL_CHECKED_PASS,INPUTS_IN_OR_DERIVED_FROM_EVIDENCE
+F_162,INCORRECT,False,gold_reference_issue;wrong_value_unexplained,endpoint convention for the 2011 index value (Stage 1 v2 review),ALL_CHECKED_PASS,INPUTS_IN_OR_DERIVED_FROM_EVIDENCE
+F_173,CORRECT,True,not_formalizable_by_stage1,,NO_EXPRESSION,NO_EXPRESSION
+F_174,NO_ANSWER,False,no_final_answer;not_formalizable_by_stage1,,NO_EXPRESSION,NO_EXPRESSION
+F_176,CORRECT,True,not_formalizable_by_stage1,,NO_EXPRESSION,NO_EXPRESSION
+F_178,INCORRECT,False,wrong_value_unexplained;not_formalizable_by_stage1,,NO_EXPRESSION,NO_EXPRESSION
+F_183,INCORRECT,False,gold_reference_issue;wrong_value_unexplained,program adds instead of subtracting; gold_answer close to correct 2.78%,ALL_CHECKED_PASS,INPUTS_IN_OR_DERIVED_FROM_EVIDENCE
+F_188,ROUNDING_ONLY,True,rounding_only;not_formalizable_by_stage1,,NO_EXPRESSION,NO_EXPRESSION
+F_189,CORRECT,True,gold_reference_issue,gold_answer 3% vs computed 2.65%,ALL_CHECKED_PASS,INPUTS_IN_OR_DERIVED_FROM_EVIDENCE
+F_213,CORRECT,True,not_formalizable_by_stage1,,NO_EXPRESSION,NO_EXPRESSION
+F_215,CORRECT,True,not_formalizable_by_stage1,,NO_EXPRESSION,NO_EXPRESSION
+F_218,INCORRECT,False,wrong_value_unexplained;not_formalizable_by_stage1,,NO_EXPRESSION,NO_EXPRESSION
+F_221,CORRECT,True,not_formalizable_by_stage1,,NO_EXPRESSION,NO_EXPRESSION
+F_223,SIGN_CONVENTION,True,not_formalizable_by_stage1,,NO_EXPRESSION,NO_EXPRESSION
+F_234,SIGN_CONVENTION,True,,,ALL_CHECKED_PASS,INPUTS_IN_OR_DERIVED_FROM_EVIDENCE
+F_236,INCORRECT,False,gold_reference_issue;wrong_value_unexplained;not_formalizable_by_stage1,operating ratio 'improved' (fell) but gold adds the change,NO_EXPRESSION,NO_EXPRESSION
+F_251,CORRECT,True,not_formalizable_by_stage1,,NO_EXPRESSION,NO_EXPRESSION
+F_263,INCORRECT,False,wrong_value_unexplained;not_formalizable_by_stage1,,NO_EXPRESSION,NO_EXPRESSION
+F_265,CORRECT,True,not_formalizable_by_stage1,,NO_EXPRESSION,NO_EXPRESSION
+F_277,CORRECT,True,,,ALL_CHECKED_PASS,ALL_INPUTS_IN_EVIDENCE
+F_278,CORRECT,True,arithmetic_error,,ARITHMETIC_FAIL_PRESENT,INPUTS_IN_OR_DERIVED_FROM_EVIDENCE
+F_292,SIGN_MISMATCH,False,sign_or_direction_error;not_formalizable_by_stage1,,NO_EXPRESSION,NO_EXPRESSION
+F_312,CORRECT,True,not_formalizable_by_stage1,,NO_EXPRESSION,NO_EXPRESSION
+F_319,CORRECT,True,not_formalizable_by_stage1,,NO_EXPRESSION,NO_EXPRESSION
+F_332,CORRECT,True,gold_reference_issue,program returns 9.3 instead of a percentage change,ALL_CHECKED_PASS,ALL_INPUTS_IN_EVIDENCE
+F_333,INCORRECT,False,wrong_value_unexplained;not_formalizable_by_stage1,,NO_EXPRESSION,NO_EXPRESSION
+F_361,CORRECT,True,not_formalizable_by_stage1,,NO_EXPRESSION,NO_EXPRESSION
+F_362,CORRECT,True,,,ALL_CHECKED_PASS,INPUTS_IN_OR_DERIVED_FROM_EVIDENCE
+F_363,ROUNDING_ONLY,True,rounding_only;not_formalizable_by_stage1,,NO_EXPRESSION,NO_EXPRESSION
+F_364,INCORRECT,False,wrong_value_unexplained;not_formalizable_by_stage1,,NO_EXPRESSION,NO_EXPRESSION
+F_370,NO_ANSWER,False,no_final_answer;not_formalizable_by_stage1,,NO_EXPRESSION,NO_EXPRESSION
+F_371,SIGN_CONVENTION,True,not_formalizable_by_stage1,,NO_EXPRESSION,NO_EXPRESSION
+F_372,CORRECT,True,,,ALL_CHECKED_PASS,INPUTS_IN_OR_DERIVED_FROM_EVIDENCE
+F_373,CORRECT,True,not_formalizable_by_stage1,,NO_EXPRESSION,NO_EXPRESSION
+F_376,INCORRECT,False,gold_reference_issue;wrong_value_unexplained,direction reversed: gold +780% vs -88.64%,ALL_CHECKED_PASS,INPUTS_IN_OR_DERIVED_FROM_EVIDENCE
+F_377,REFUSED,False,refusal;not_formalizable_by_stage1,,NO_EXPRESSION,NO_EXPRESSION
+F_393,CORRECT,True,not_formalizable_by_stage1,,NO_EXPRESSION,NO_EXPRESSION
+F_411,CORRECT,True,not_formalizable_by_stage1,,NO_EXPRESSION,NO_EXPRESSION
+F_421,INCORRECT,False,wrong_value_unexplained;not_formalizable_by_stage1,,NO_EXPRESSION,NO_EXPRESSION
+F_426,INCORRECT,False,arithmetic_error,,ARITHMETIC_FAIL_PRESENT,ALL_INPUTS_IN_EVIDENCE
+F_428,CORRECT,True,not_formalizable_by_stage1,,NO_EXPRESSION,NO_EXPRESSION
+F_430,REFUSED,False,gold_reference_issue;refusal;not_formalizable_by_stage1,gold_answer 219.35 vs program 21.94; method financially doubtful,NO_EXPRESSION,NO_EXPRESSION
+F_431,CORRECT,True,not_formalizable_by_stage1,,NO_EXPRESSION,NO_EXPRESSION
+F_434,NO_ANSWER,False,no_final_answer;not_formalizable_by_stage1,,NO_EXPRESSION,NO_EXPRESSION
+F_453,INCORRECT,False,gold_reference_issue;wrong_value_unexplained;not_formalizable_by_stage1,uses employee purchase price as share price,NO_EXPRESSION,NO_EXPRESSION
+F_456,INCORRECT,False,wrong_value_unexplained;not_formalizable_by_stage1,,NO_EXPRESSION,NO_EXPRESSION
+F_457,CORRECT,True,not_formalizable_by_stage1,,NO_EXPRESSION,NO_EXPRESSION
+F_463,INCORRECT,False,gold_reference_issue;wrong_value_unexplained;not_formalizable_by_stage1,question asks millions; values appear to be thousands,NO_EXPRESSION,NO_EXPRESSION
+F_473,CORRECT,True,not_formalizable_by_stage1,,NO_EXPRESSION,NO_EXPRESSION
+F_475,INCORRECT,False,wrong_value_unexplained;not_formalizable_by_stage1,,NO_EXPRESSION,NO_EXPRESSION
+F_487,CORRECT,True,not_formalizable_by_stage1,,NO_EXPRESSION,NO_EXPRESSION
+F_488,INCORRECT,False,gold_reference_issue;wrong_value_unexplained,gold_answer 29% vs program 27.27%,ALL_CHECKED_PASS,ALL_INPUTS_IN_EVIDENCE
+F_008,NOT_EVALUATED,False,not_formalizable_by_stage1,,NO_EXPRESSION,NO_EXPRESSION
+F_011,NOT_EVALUATED,False,unsupported_number;arithmetic_error,,ARITHMETIC_FAIL_PRESENT,SOME_INPUTS_NOT_FOUND
+F_013,NOT_EVALUATED,False,not_formalizable_by_stage1,,NO_EXPRESSION,NO_EXPRESSION
+F_015,NOT_EVALUATED,False,unsupported_number;arithmetic_error,,ARITHMETIC_FAIL_PRESENT,SOME_INPUTS_NOT_FOUND

@@ -1,0 +1,67 @@
+{
+  "commit_final": "dc8ce86",
+  "commit_pilot": "7522e82",
+  "metrics": {
+    "3": {
+      "irs": 16,
+      "validator_status": {
+        "ARITHMETIC_MISMATCH": 5,
+        "STRUCTURALLY_VALID": 11
+      },
+      "abstain": 0,
+      "variables": 38,
+      "grounding_pass": 16,
+      "grounding_errors": 0,
+      "unsourced": 0,
+      "claim_mismatch": 3,
+      "claim_mismatch_with_correct_equations": 3,
+      "computed_correct": 12,
+      "scored": 16,
+      "computed_correct_clean_gold": 10,
+      "scored_clean_gold": 11,
+      "answer_errors": [
+        "F_089"
+      ],
+      "classes": {
+        "CLAIM_MISMATCH": 3,
+        "CORRECT": 9,
+        "ANSWER_ERROR": 1,
+        "GOLD_DISPUTED": 3
+      },
+      "rerun_cases": [
+        "F_011",
+        "F_015"
+      ]
+    },
+    "8": {
+      "irs": 16,
+      "validator_status": {
+        "ARITHMETIC_MISMATCH": 6,
+        "STRUCTURALLY_VALID": 10
+      },
+      "abstain": 0,
+      "variables": 43,
+      "grounding_pass": 16,
+      "grounding_errors": 0,
+      "unsourced": 0,
+      "claim_mismatch": 4,
+      "claim_mismatch_with_correct_equations": 4,
+      "computed_correct": 13,
+      "scored": 16,
+      "computed_correct_clean_gold": 11,
+      "scored_clean_gold": 11,
+      "answer_errors": [],
+      "classes": {
+        "CLAIM_MISMATCH": 4,
+        "CORRECT": 9,
+        "GOLD_DISPUTED": 3
+      },
+      "rerun_cases": [
+        "F_011",
+        "F_015"
+      ]
+    }
+  },
+  "cost_note": "OpenAI usage for the pilot including both reruns: 36 requests, 115,336 tokens, $0.56 (project dashboard, November)",
+  "model": "gpt-6.2-sol"
+}

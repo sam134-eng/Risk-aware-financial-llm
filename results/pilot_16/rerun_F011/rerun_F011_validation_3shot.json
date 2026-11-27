@@ -1,0 +1,18 @@
+{
+  "total": 1,
+  "statuses": {
+    "ARITHMETIC_MISMATCH": 1
+  },
+  "cases": [
+    {
+      "question_id": "F_011",
+      "checks": {
+        "status": "ARITHMETIC_MISMATCH",
+        "errors": [],
+        "warnings": [
+          "claimed_answer_arithmetic_mismatch"
+        ]
+      }
+    }
+  ]
+}

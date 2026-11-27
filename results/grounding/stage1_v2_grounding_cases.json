@@ -1,0 +1,1747 @@
+[
+ {
+  "case_id": "F_008",
+  "case_arithmetic_status": "NO_EXPRESSION",
+  "evidence_grounding": "NO_EXPRESSION",
+  "arithmetic_pass_and_inputs_supported": null,
+  "expressions": []
+ },
+ {
+  "case_id": "F_011",
+  "case_arithmetic_status": "ARITHMETIC_FAIL_PRESENT",
+  "evidence_grounding": "SOME_INPUTS_NOT_FOUND",
+  "arithmetic_pass_and_inputs_supported": false,
+  "expressions": [
+   {
+    "expression_index": 0,
+    "kind": "binary_equation",
+    "source_expression": "9000 \\times 1.05 = 9450 \\text{ USD}",
+    "arithmetic_result": "PASS",
+    "inputs": [
+     {
+      "value": "9000",
+      "unit_hint": null,
+      "match_class": "EVIDENCE_EXACT",
+      "evidence_refs": [
+       "evidence.principal"
+      ],
+      "evidence_raw": [
+       "9000"
+      ],
+      "note": ""
+     },
+     {
+      "value": "1.05",
+      "unit_hint": null,
+      "match_class": "DERIVED_FROM_EVIDENCE",
+      "evidence_refs": [
+       "evidence.duration",
+       "evidence.nominal_annual_interest_rate"
+      ],
+      "evidence_raw": [
+       "0.05",
+       "1"
+      ],
+      "note": "0.05 + 1 in evidence"
+     }
+    ],
+    "grounding": "INPUTS_IN_OR_DERIVED_FROM_EVIDENCE"
+   },
+   {
+    "expression_index": 1,
+    "kind": "binary_equation",
+    "source_expression": "9000 \\times 1.050945 \\approx 9469.51 \\text{ USD}",
+    "arithmetic_result": "FAIL",
+    "inputs": [
+     {
+      "value": "9000",
+      "unit_hint": null,
+      "match_class": "EVIDENCE_EXACT",
+      "evidence_refs": [
+       "evidence.principal"
+      ],
+      "evidence_raw": [
+       "9000"
+      ],
+      "note": ""
+     },
+     {
+      "value": "1.050945",
+      "unit_hint": null,
+      "match_class": "NOT_FOUND",
+      "evidence_refs": [],
+      "evidence_raw": [],
+      "note": ""
+     }
+    ],
+    "grounding": "SOME_INPUTS_NOT_FOUND"
+   },
+   {
+    "expression_index": 2,
+    "kind": "binary_equation",
+    "source_expression": "9000 \\times 1.051161897 \\approx 9460.46 \\text{ USD}",
+    "arithmetic_result": "PASS",
+    "inputs": [
+     {
+      "value": "9000",
+      "unit_hint": null,
+      "match_class": "EVIDENCE_EXACT",
+      "evidence_refs": [
+       "evidence.principal"
+      ],
+      "evidence_raw": [
+       "9000"
+      ],
+      "note": ""
+     },
+     {
+      "value": "1.051161897",
+      "unit_hint": null,
+      "match_class": "NOT_FOUND",
+      "evidence_refs": [],
+      "evidence_raw": [],
+      "note": ""
+     }
+    ],
+    "grounding": "SOME_INPUTS_NOT_FOUND"
+   }
+  ]
+ },
+ {
+  "case_id": "F_013",
+  "case_arithmetic_status": "NO_EXPRESSION",
+  "evidence_grounding": "NO_EXPRESSION",
+  "arithmetic_pass_and_inputs_supported": null,
+  "expressions": []
+ },
+ {
+  "case_id": "F_015",
+  "case_arithmetic_status": "ARITHMETIC_FAIL_PRESENT",
+  "evidence_grounding": "SOME_INPUTS_NOT_FOUND",
+  "arithmetic_pass_and_inputs_supported": false,
+  "expressions": [
+   {
+    "expression_index": 0,
+    "kind": "binary_equation",
+    "source_expression": "30341.5 \\cdot 0.030232831 \\approx 916.35",
+    "arithmetic_result": "FAIL",
+    "inputs": [
+     {
+      "value": "30341.5",
+      "unit_hint": null,
+      "match_class": "EVIDENCE_EXACT",
+      "evidence_refs": [
+       "evidence.loan_principal"
+      ],
+      "evidence_raw": [
+       "30341.5"
+      ],
+      "note": ""
+     },
+     {
+      "value": "0.030232831",
+      "unit_hint": null,
+      "match_class": "NOT_FOUND",
+      "evidence_refs": [],
+      "evidence_raw": [],
+      "note": ""
+     }
+    ],
+    "grounding": "SOME_INPUTS_NOT_FOUND"
+   },
+   {
+    "expression_index": 1,
+    "kind": "binary_equation",
+    "source_expression": "30341.50 \\times 0.005625 \\approx 170.40",
+    "arithmetic_result": "FAIL",
+    "inputs": [
+     {
+      "value": "30341.50",
+      "unit_hint": null,
+      "match_class": "EVIDENCE_EXACT",
+      "evidence_refs": [
+       "evidence.loan_principal"
+      ],
+      "evidence_raw": [
+       "30341.5"
+      ],
+      "note": ""
+     },
+     {
+      "value": "0.005625",
+      "unit_hint": null,
+      "match_class": "DERIVED_FROM_EVIDENCE",
+      "evidence_refs": [
+       "evidence.compounding_frequency",
+       "evidence.nominal_annual_interest_rate"
+      ],
+      "evidence_raw": [
+       "0.0675",
+       "12"
+      ],
+      "note": "0.0675 / 12 in evidence"
+     }
+    ],
+    "grounding": "INPUTS_IN_OR_DERIVED_FROM_EVIDENCE"
+   },
+   {
+    "expression_index": 2,
+    "kind": "binary_equation",
+    "source_expression": "916.35 - 170.40 \\approx 745.95",
+    "arithmetic_result": "PASS",
+    "inputs": [
+     {
+      "value": "916.35",
+      "unit_hint": null,
+      "match_class": "MODEL_INTERMEDIATE",
+      "evidence_refs": [
+       "earlier_step"
+      ],
+      "evidence_raw": [
+       "916.35"
+      ],
+      "note": ""
+     },
+     {
+      "value": "170.40",
+      "unit_hint": null,
+      "match_class": "MODEL_INTERMEDIATE",
+      "evidence_refs": [
+       "earlier_step"
+      ],
+      "evidence_raw": [
+       "170.40"
+      ],
+      "note": ""
+     }
+    ],
+    "grounding": "INPUTS_IN_OR_DERIVED_FROM_EVIDENCE"
+   }
+  ]
+ },
+ {
+  "case_id": "F_017",
+  "case_arithmetic_status": "ALL_CHECKED_PASS",
+  "evidence_grounding": "ALL_INPUTS_IN_EVIDENCE",
+  "arithmetic_pass_and_inputs_supported": true,
+  "expressions": [
+   {
+    "expression_index": 0,
+    "kind": "percentage_fraction",
+    "source_expression": "\\text{Percentage} = \\left( \\frac{6725}{11664} \\right) \\times 100 \\approx 57.66\\%",
+    "arithmetic_result": "PASS",
+    "inputs": [
+     {
+      "value": "6725",
+      "unit_hint": null,
+      "match_class": "EVIDENCE_EXACT",
+      "evidence_refs": [
+       "table_row_5_col_1"
+      ],
+      "evidence_raw": [
+       "6725"
+      ],
+      "note": ""
+     },
+     {
+      "value": "11664",
+      "unit_hint": null,
+      "match_class": "EVIDENCE_EXACT",
+      "evidence_refs": [
+       "table_row_6_col_1"
+      ],
+      "evidence_raw": [
+       "$ 11664"
+      ],
+      "note": ""
+     }
+    ],
+    "grounding": "ALL_INPUTS_IN_EVIDENCE"
+   }
+  ]
+ },
+ {
+  "case_id": "F_026",
+  "case_arithmetic_status": "ALL_CHECKED_PASS",
+  "evidence_grounding": "ALL_INPUTS_IN_EVIDENCE",
+  "arithmetic_pass_and_inputs_supported": true,
+  "expressions": [
+   {
+    "expression_index": 0,
+    "kind": "percentage_fraction",
+    "source_expression": "\\text{Percentage} = \\left( \\frac{997}{7000} \\right) \\times 100 \\approx 14.24\\%",
+    "arithmetic_result": "PASS",
+    "inputs": [
+     {
+      "value": "997",
+      "unit_hint": null,
+      "match_class": "EVIDENCE_EXACT",
+      "evidence_refs": [
+       "text_2"
+      ],
+      "evidence_raw": [
+       "$ 997"
+      ],
+      "note": ""
+     },
+     {
+      "value": "7000",
+      "unit_hint": null,
+      "match_class": "EVIDENCE_RESCALED",
+      "evidence_refs": [
+       "text_1"
+      ],
+      "evidence_raw": [
+       "$ 7.0"
+      ],
+      "note": ""
+     }
+    ],
+    "grounding": "ALL_INPUTS_IN_EVIDENCE"
+   }
+  ]
+ },
+ {
+  "case_id": "F_027",
+  "case_arithmetic_status": "ARITHMETIC_FAIL_PRESENT",
+  "evidence_grounding": "ALL_INPUTS_IN_EVIDENCE",
+  "arithmetic_pass_and_inputs_supported": false,
+  "expressions": [
+   {
+    "expression_index": 0,
+    "kind": "binary_equation",
+    "source_expression": "4,999 \\times 50.33 = 251,374.67",
+    "arithmetic_result": "FAIL",
+    "inputs": [
+     {
+      "value": "4999",
+      "unit_hint": null,
+      "match_class": "EVIDENCE_EXACT",
+      "evidence_refs": [
+       "table_row_5_col_1"
+      ],
+      "evidence_raw": [
+       "4999"
+      ],
+      "note": ""
+     },
+     {
+      "value": "50.33",
+      "unit_hint": null,
+      "match_class": "EVIDENCE_EXACT",
+      "evidence_refs": [
+       "table_row_5_col_2"
+      ],
+      "evidence_raw": [
+       "$ 50.33"
+      ],
+      "note": ""
+     }
+    ],
+    "grounding": "ALL_INPUTS_IN_EVIDENCE"
+   }
+  ]
+ },
+ {
+  "case_id": "F_033",
+  "case_arithmetic_status": "ALL_CHECKED_PASS",
+  "evidence_grounding": "INPUTS_IN_OR_DERIVED_FROM_EVIDENCE",
+  "arithmetic_pass_and_inputs_supported": true,
+  "expressions": [
+   {
+    "expression_index": 0,
+    "kind": "percentage_fraction",
+    "source_expression": "= \\left(\\frac{-0.5 \\text{ million}}{2.7 \\text{ million}}\\right) \\times 100 | = -18.52\\%",
+    "arithmetic_result": "PASS",
+    "inputs": [
+     {
+      "value": "-0.5",
+      "unit_hint": "million",
+      "match_class": "DERIVED_FROM_EVIDENCE",
+      "evidence_refs": [
+       "text_17"
+      ],
+      "evidence_raw": [
+       "2.2",
+       "2.7"
+      ],
+      "note": "2.2 - 2.7 in text_17"
+     },
+     {
+      "value": "2.7",
+      "unit_hint": "million",
+      "match_class": "EVIDENCE_EXACT",
+      "evidence_refs": [
+       "text_17"
+      ],
+      "evidence_raw": [
+       "2.7"
+      ],
+      "note": ""
+     }
+    ],
+    "grounding": "INPUTS_IN_OR_DERIVED_FROM_EVIDENCE"
+   }
+  ]
+ },
+ {
+  "case_id": "F_037",
+  "case_arithmetic_status": "NO_EXPRESSION",
+  "evidence_grounding": "NO_EXPRESSION",
+  "arithmetic_pass_and_inputs_supported": null,
+  "expressions": []
+ },
+ {
+  "case_id": "F_048",
+  "case_arithmetic_status": "NO_EXPRESSION",
+  "evidence_grounding": "NO_EXPRESSION",
+  "arithmetic_pass_and_inputs_supported": null,
+  "expressions": []
+ },
+ {
+  "case_id": "F_057",
+  "case_arithmetic_status": "NO_EXPRESSION",
+  "evidence_grounding": "NO_EXPRESSION",
+  "arithmetic_pass_and_inputs_supported": null,
+  "expressions": []
+ },
+ {
+  "case_id": "F_067",
+  "case_arithmetic_status": "NO_EXPRESSION",
+  "evidence_grounding": "NO_EXPRESSION",
+  "arithmetic_pass_and_inputs_supported": null,
+  "expressions": []
+ },
+ {
+  "case_id": "F_071",
+  "case_arithmetic_status": "ALL_CHECKED_PASS",
+  "evidence_grounding": "SOME_INPUTS_NOT_FOUND",
+  "arithmetic_pass_and_inputs_supported": false,
+  "expressions": [
+   {
+    "expression_index": 0,
+    "kind": "percentage_fraction",
+    "source_expression": "\\text{Cumulative Return (\\%)} = \\left( \\frac{-7.51}{100} \\right) \\times 100 = -7.51\\%",
+    "arithmetic_result": "PASS",
+    "inputs": [
+     {
+      "value": "-7.51",
+      "unit_hint": null,
+      "match_class": "NOT_FOUND",
+      "evidence_refs": [],
+      "evidence_raw": [],
+      "note": ""
+     },
+     {
+      "value": "100",
+      "unit_hint": null,
+      "match_class": "EVIDENCE_EXACT",
+      "evidence_refs": [
+       "text_1",
+       "text_2"
+      ],
+      "evidence_raw": [
+       "$ 100",
+       "$ 100"
+      ],
+      "note": "value appears in 2 places"
+     }
+    ],
+    "grounding": "SOME_INPUTS_NOT_FOUND"
+   }
+  ]
+ },
+ {
+  "case_id": "F_073",
+  "case_arithmetic_status": "NO_EXPRESSION",
+  "evidence_grounding": "NO_EXPRESSION",
+  "arithmetic_pass_and_inputs_supported": null,
+  "expressions": []
+ },
+ {
+  "case_id": "F_076",
+  "case_arithmetic_status": "NO_EXPRESSION",
+  "evidence_grounding": "NO_EXPRESSION",
+  "arithmetic_pass_and_inputs_supported": null,
+  "expressions": []
+ },
+ {
+  "case_id": "F_086",
+  "case_arithmetic_status": "NO_EXPRESSION",
+  "evidence_grounding": "NO_EXPRESSION",
+  "arithmetic_pass_and_inputs_supported": null,
+  "expressions": []
+ },
+ {
+  "case_id": "F_089",
+  "case_arithmetic_status": "ALL_CHECKED_PASS",
+  "evidence_grounding": "ALL_INPUTS_IN_EVIDENCE",
+  "arithmetic_pass_and_inputs_supported": true,
+  "expressions": [
+   {
+    "expression_index": 0,
+    "kind": "percentage_fraction",
+    "source_expression": "\\text{Percentage} = \\left( \\frac{54}{75} \\right) \\times 100 \\approx 72\\%",
+    "arithmetic_result": "PASS",
+    "inputs": [
+     {
+      "value": "54",
+      "unit_hint": null,
+      "match_class": "EVIDENCE_EXACT",
+      "evidence_refs": [
+       "table_row_3_col_1"
+      ],
+      "evidence_raw": [
+       "54"
+      ],
+      "note": ""
+     },
+     {
+      "value": "75",
+      "unit_hint": null,
+      "match_class": "EVIDENCE_EXACT",
+      "evidence_refs": [
+       "text_1"
+      ],
+      "evidence_raw": [
+       "$ 75"
+      ],
+      "note": ""
+     }
+    ],
+    "grounding": "ALL_INPUTS_IN_EVIDENCE"
+   }
+  ]
+ },
+ {
+  "case_id": "F_098",
+  "case_arithmetic_status": "ALL_CHECKED_PASS",
+  "evidence_grounding": "ALL_INPUTS_IN_EVIDENCE",
+  "arithmetic_pass_and_inputs_supported": true,
+  "expressions": [
+   {
+    "expression_index": 0,
+    "kind": "binary_equation",
+    "source_expression": "5,283.3 \\, \\text{million} \\times 0.15 = 792.495 \\, \\text{million}",
+    "arithmetic_result": "PASS",
+    "inputs": [
+     {
+      "value": "5283.3",
+      "unit_hint": "million",
+      "match_class": "EVIDENCE_EXACT",
+      "evidence_refs": [
+       "table_row_5_col_1"
+      ],
+      "evidence_raw": [
+       "$ 5283.3"
+      ],
+      "note": ""
+     },
+     {
+      "value": "0.15",
+      "unit_hint": null,
+      "match_class": "EVIDENCE_PERCENT_AS_RATIO",
+      "evidence_refs": [
+       "text_14"
+      ],
+      "evidence_raw": [
+       "15%"
+      ],
+      "note": ""
+     }
+    ],
+    "grounding": "ALL_INPUTS_IN_EVIDENCE"
+   }
+  ]
+ },
+ {
+  "case_id": "F_100",
+  "case_arithmetic_status": "NO_EXPRESSION",
+  "evidence_grounding": "NO_EXPRESSION",
+  "arithmetic_pass_and_inputs_supported": null,
+  "expressions": []
+ },
+ {
+  "case_id": "F_106",
+  "case_arithmetic_status": "ALL_CHECKED_PASS",
+  "evidence_grounding": "ALL_INPUTS_IN_EVIDENCE",
+  "arithmetic_pass_and_inputs_supported": true,
+  "expressions": [
+   {
+    "expression_index": 0,
+    "kind": "binary_equation",
+    "source_expression": "736 \\text{ million} - 708 \\text{ million} = 28 \\text{ million}",
+    "arithmetic_result": "PASS",
+    "inputs": [
+     {
+      "value": "736",
+      "unit_hint": "million",
+      "match_class": "EVIDENCE_EXACT",
+      "evidence_refs": [
+       "text_9"
+      ],
+      "evidence_raw": [
+       "$ 736"
+      ],
+      "note": ""
+     },
+     {
+      "value": "708",
+      "unit_hint": "million",
+      "match_class": "EVIDENCE_EXACT",
+      "evidence_refs": [
+       "text_9"
+      ],
+      "evidence_raw": [
+       "$ 708"
+      ],
+      "note": ""
+     }
+    ],
+    "grounding": "ALL_INPUTS_IN_EVIDENCE"
+   },
+   {
+    "expression_index": 1,
+    "kind": "percentage_fraction",
+    "source_expression": "\\text{Percentage Decline} = \\left( \\frac{\\text{Decline}}{\\text{Value in 2009}} \\right) \\times 100 = \\left( \\frac{28 \\text{ million}}{736 \\text{ million}} \\right) \\times 100 \\approx 3.8\\%",
+    "arithmetic_result": "PASS",
+    "inputs": [
+     {
+      "value": "28",
+      "unit_hint": "million",
+      "match_class": "EVIDENCE_EXACT",
+      "evidence_refs": [
+       "text_14"
+      ],
+      "evidence_raw": [
+       "$ 28"
+      ],
+      "note": ""
+     },
+     {
+      "value": "736",
+      "unit_hint": "million",
+      "match_class": "EVIDENCE_EXACT",
+      "evidence_refs": [
+       "text_9"
+      ],
+      "evidence_raw": [
+       "$ 736"
+      ],
+      "note": ""
+     }
+    ],
+    "grounding": "ALL_INPUTS_IN_EVIDENCE"
+   }
+  ]
+ },
+ {
+  "case_id": "F_113",
+  "case_arithmetic_status": "NO_EXPRESSION",
+  "evidence_grounding": "NO_EXPRESSION",
+  "arithmetic_pass_and_inputs_supported": null,
+  "expressions": []
+ },
+ {
+  "case_id": "F_125",
+  "case_arithmetic_status": "ARITHMETIC_FAIL_PRESENT",
+  "evidence_grounding": "ALL_INPUTS_IN_EVIDENCE",
+  "arithmetic_pass_and_inputs_supported": false,
+  "expressions": [
+   {
+    "expression_index": 0,
+    "kind": "percentage_fraction",
+    "source_expression": "\\text{Percentage} = \\left( \\frac{75,970}{777,443} \\right) \\times 100 \\approx 9.75\\%",
+    "arithmetic_result": "FAIL",
+    "inputs": [
+     {
+      "value": "75970",
+      "unit_hint": null,
+      "match_class": "EVIDENCE_EXACT",
+      "evidence_refs": [
+       "table_row_2_col_1",
+       "table_row_3_col_1",
+       "table_row_4_col_1"
+      ],
+      "evidence_raw": [
+       "75970",
+       "75970",
+       "75970"
+      ],
+      "note": "value appears in 3 places"
+     },
+     {
+      "value": "777443",
+      "unit_hint": null,
+      "match_class": "EVIDENCE_EXACT",
+      "evidence_refs": [
+       "table_row_6_col_1"
+      ],
+      "evidence_raw": [
+       "777443"
+      ],
+      "note": ""
+     }
+    ],
+    "grounding": "ALL_INPUTS_IN_EVIDENCE"
+   }
+  ]
+ },
+ {
+  "case_id": "F_127",
+  "case_arithmetic_status": "ARITHMETIC_FAIL_PRESENT",
+  "evidence_grounding": "ALL_INPUTS_IN_EVIDENCE",
+  "arithmetic_pass_and_inputs_supported": false,
+  "expressions": [
+   {
+    "expression_index": 0,
+    "kind": "percentage_fraction",
+    "source_expression": "\\text{Percent} = \\left( \\frac{115.7}{559.3} \\right) \\times 100 \\approx 20.68\\%",
+    "arithmetic_result": "FAIL",
+    "inputs": [
+     {
+      "value": "115.7",
+      "unit_hint": null,
+      "match_class": "EVIDENCE_EXACT",
+      "evidence_refs": [
+       "table_row_2_col_1"
+      ],
+      "evidence_raw": [
+       "115.7"
+      ],
+      "note": ""
+     },
+     {
+      "value": "559.3",
+      "unit_hint": null,
+      "match_class": "EVIDENCE_EXACT",
+      "evidence_refs": [
+       "table_row_7_col_1",
+       "text_5"
+      ],
+      "evidence_raw": [
+       "$ 559.3",
+       "$ 559.3"
+      ],
+      "note": "value appears in 2 places"
+     }
+    ],
+    "grounding": "ALL_INPUTS_IN_EVIDENCE"
+   }
+  ]
+ },
+ {
+  "case_id": "F_128",
+  "case_arithmetic_status": "NO_EXPRESSION",
+  "evidence_grounding": "NO_EXPRESSION",
+  "arithmetic_pass_and_inputs_supported": null,
+  "expressions": []
+ },
+ {
+  "case_id": "F_131",
+  "case_arithmetic_status": "NO_EXPRESSION",
+  "evidence_grounding": "NO_EXPRESSION",
+  "arithmetic_pass_and_inputs_supported": null,
+  "expressions": []
+ },
+ {
+  "case_id": "F_147",
+  "case_arithmetic_status": "ALL_CHECKED_PASS",
+  "evidence_grounding": "INPUTS_IN_OR_DERIVED_FROM_EVIDENCE",
+  "arithmetic_pass_and_inputs_supported": true,
+  "expressions": [
+   {
+    "expression_index": 0,
+    "kind": "percentage_fraction",
+    "source_expression": "\\text{Percentage Change} = \\frac{-3.7 - (-3.5)}{|-3.5|} \\times 100 = \\frac{-3.7 + 3.5}{3.5} \\times 100 = \\frac{-0.2}{3.5} \\times 100 \\approx -5.71\\%",
+    "arithmetic_result": "PASS",
+    "inputs": [
+     {
+      "value": "-0.2",
+      "unit_hint": null,
+      "match_class": "DERIVED_FROM_EVIDENCE",
+      "evidence_refs": [
+       "table_row_1_col_2",
+       "table_row_1_col_3"
+      ],
+      "evidence_raw": [
+       "$ -3.7",
+       "$ -3.5"
+      ],
+      "note": "$ -3.7 - $ -3.5 in table_1"
+     },
+     {
+      "value": "3.5",
+      "unit_hint": null,
+      "match_class": "EVIDENCE_SIGN_DIFFERS",
+      "evidence_refs": [
+       "table_row_1_col_3"
+      ],
+      "evidence_raw": [
+       "$ -3.5"
+      ],
+      "note": ""
+     }
+    ],
+    "grounding": "INPUTS_IN_OR_DERIVED_FROM_EVIDENCE"
+   }
+  ]
+ },
+ {
+  "case_id": "F_148",
+  "case_arithmetic_status": "NO_EXPRESSION",
+  "evidence_grounding": "NO_EXPRESSION",
+  "arithmetic_pass_and_inputs_supported": null,
+  "expressions": []
+ },
+ {
+  "case_id": "F_151",
+  "case_arithmetic_status": "ALL_CHECKED_PASS",
+  "evidence_grounding": "INPUTS_IN_OR_DERIVED_FROM_EVIDENCE",
+  "arithmetic_pass_and_inputs_supported": true,
+  "expressions": [
+   {
+    "expression_index": 0,
+    "kind": "binary_equation",
+    "source_expression": "100,000 \\times 1.3829 = 138,290",
+    "arithmetic_result": "PASS",
+    "inputs": [
+     {
+      "value": "100000",
+      "unit_hint": null,
+      "match_class": "QUESTION",
+      "evidence_refs": [
+       "question"
+      ],
+      "evidence_raw": [
+       "100000"
+      ],
+      "note": ""
+     },
+     {
+      "value": "1.3829",
+      "unit_hint": null,
+      "match_class": "DERIVED_FROM_EVIDENCE",
+      "evidence_refs": [
+       "table_row_2_col_1",
+       "table_row_2_col_4"
+      ],
+      "evidence_raw": [
+       "138.29",
+       "100.00"
+      ],
+      "note": "138.29 / 100.00 in table_2"
+     }
+    ],
+    "grounding": "INPUTS_IN_OR_DERIVED_FROM_EVIDENCE"
+   }
+  ]
+ },
+ {
+  "case_id": "F_160",
+  "case_arithmetic_status": "ALL_CHECKED_PASS",
+  "evidence_grounding": "INPUTS_IN_OR_DERIVED_FROM_EVIDENCE",
+  "arithmetic_pass_and_inputs_supported": true,
+  "expressions": [
+   {
+    "expression_index": 0,
+    "kind": "percentage_fraction",
+    "source_expression": "= \\left( \\frac{1.1}{27.8} \\right) \\times 100 \\approx 3.96\\%",
+    "arithmetic_result": "PASS",
+    "inputs": [
+     {
+      "value": "1.1",
+      "unit_hint": null,
+      "match_class": "DERIVED_FROM_EVIDENCE",
+      "evidence_refs": [
+       "table_row_1_col_1",
+       "table_row_1_col_2"
+      ],
+      "evidence_raw": [
+       "28.9%",
+       "27.8%"
+      ],
+      "note": "28.9% - 27.8% in table_1"
+     },
+     {
+      "value": "27.8",
+      "unit_hint": null,
+      "match_class": "EVIDENCE_EXACT",
+      "evidence_refs": [
+       "table_row_1_col_2"
+      ],
+      "evidence_raw": [
+       "27.8%"
+      ],
+      "note": ""
+     }
+    ],
+    "grounding": "INPUTS_IN_OR_DERIVED_FROM_EVIDENCE"
+   }
+  ]
+ },
+ {
+  "case_id": "F_162",
+  "case_arithmetic_status": "ALL_CHECKED_PASS",
+  "evidence_grounding": "INPUTS_IN_OR_DERIVED_FROM_EVIDENCE",
+  "arithmetic_pass_and_inputs_supported": true,
+  "expressions": [
+   {
+    "expression_index": 0,
+    "kind": "percentage_fraction",
+    "source_expression": "\\text{Rate of Return} = \\frac{18.70}{100.00} \\times 100 = 18.70\\%",
+    "arithmetic_result": "PASS",
+    "inputs": [
+     {
+      "value": "18.70",
+      "unit_hint": null,
+      "match_class": "DERIVED_FROM_EVIDENCE",
+      "evidence_refs": [
+       "table_row_2_col_1",
+       "table_row_2_col_3"
+      ],
+      "evidence_raw": [
+       "118.70",
+       "100.00"
+      ],
+      "note": "118.70 - 100.00 in table_2"
+     },
+     {
+      "value": "100.00",
+      "unit_hint": null,
+      "match_class": "EVIDENCE_EXACT",
+      "evidence_refs": [
+       "table_row_1_col_1",
+       "table_row_2_col_1",
+       "table_row_3_col_1",
+       "text_1",
+       "text_2"
+      ],
+      "evidence_raw": [
+       "100.00",
+       "100.00",
+       "100.00",
+       "$ 100",
+       "$ 100"
+      ],
+      "note": "value appears in 5 places"
+     }
+    ],
+    "grounding": "INPUTS_IN_OR_DERIVED_FROM_EVIDENCE"
+   }
+  ]
+ },
+ {
+  "case_id": "F_173",
+  "case_arithmetic_status": "NO_EXPRESSION",
+  "evidence_grounding": "NO_EXPRESSION",
+  "arithmetic_pass_and_inputs_supported": null,
+  "expressions": []
+ },
+ {
+  "case_id": "F_174",
+  "case_arithmetic_status": "NO_EXPRESSION",
+  "evidence_grounding": "NO_EXPRESSION",
+  "arithmetic_pass_and_inputs_supported": null,
+  "expressions": []
+ },
+ {
+  "case_id": "F_176",
+  "case_arithmetic_status": "NO_EXPRESSION",
+  "evidence_grounding": "NO_EXPRESSION",
+  "arithmetic_pass_and_inputs_supported": null,
+  "expressions": []
+ },
+ {
+  "case_id": "F_178",
+  "case_arithmetic_status": "NO_EXPRESSION",
+  "evidence_grounding": "NO_EXPRESSION",
+  "arithmetic_pass_and_inputs_supported": null,
+  "expressions": []
+ },
+ {
+  "case_id": "F_183",
+  "case_arithmetic_status": "ALL_CHECKED_PASS",
+  "evidence_grounding": "INPUTS_IN_OR_DERIVED_FROM_EVIDENCE",
+  "arithmetic_pass_and_inputs_supported": true,
+  "expressions": [
+   {
+    "expression_index": 0,
+    "kind": "percentage_fraction",
+    "source_expression": "= \\frac{0.03}{1.08} \\times 100 | \\approx 2.78\\%",
+    "arithmetic_result": "PASS",
+    "inputs": [
+     {
+      "value": "0.03",
+      "unit_hint": null,
+      "match_class": "DERIVED_FROM_EVIDENCE",
+      "evidence_refs": [
+       "table_row_1_col_1",
+       "table_row_1_col_2"
+      ],
+      "evidence_raw": [
+       "$ 1.11",
+       "$ 1.08"
+      ],
+      "note": "$ 1.11 - $ 1.08 in table_1"
+     },
+     {
+      "value": "1.08",
+      "unit_hint": null,
+      "match_class": "EVIDENCE_EXACT",
+      "evidence_refs": [
+       "table_row_1_col_2",
+       "text_25"
+      ],
+      "evidence_raw": [
+       "$ 1.08",
+       "$ 1.08"
+      ],
+      "note": "value appears in 2 places"
+     }
+    ],
+    "grounding": "INPUTS_IN_OR_DERIVED_FROM_EVIDENCE"
+   }
+  ]
+ },
+ {
+  "case_id": "F_188",
+  "case_arithmetic_status": "NO_EXPRESSION",
+  "evidence_grounding": "NO_EXPRESSION",
+  "arithmetic_pass_and_inputs_supported": null,
+  "expressions": []
+ },
+ {
+  "case_id": "F_189",
+  "case_arithmetic_status": "ALL_CHECKED_PASS",
+  "evidence_grounding": "INPUTS_IN_OR_DERIVED_FROM_EVIDENCE",
+  "arithmetic_pass_and_inputs_supported": true,
+  "expressions": [
+   {
+    "expression_index": 0,
+    "kind": "percentage_fraction",
+    "source_expression": "\\text{Percentage Change} = \\left( \\frac{27.1 - 26.4}{26.4} \\right) \\times 100 = \\left( \\frac{0.7}{26.4} \\right) \\times 100 \\approx 2.65\\%",
+    "arithmetic_result": "PASS",
+    "inputs": [
+     {
+      "value": "0.7",
+      "unit_hint": null,
+      "match_class": "DERIVED_FROM_EVIDENCE",
+      "evidence_refs": [
+       "table_row_2_col_1",
+       "table_row_2_col_2"
+      ],
+      "evidence_raw": [
+       "27.1",
+       "26.4"
+      ],
+      "note": "27.1 - 26.4 in table_2"
+     },
+     {
+      "value": "26.4",
+      "unit_hint": null,
+      "match_class": "EVIDENCE_EXACT",
+      "evidence_refs": [
+       "table_row_2_col_2"
+      ],
+      "evidence_raw": [
+       "26.4"
+      ],
+      "note": ""
+     }
+    ],
+    "grounding": "INPUTS_IN_OR_DERIVED_FROM_EVIDENCE"
+   }
+  ]
+ },
+ {
+  "case_id": "F_213",
+  "case_arithmetic_status": "NO_EXPRESSION",
+  "evidence_grounding": "NO_EXPRESSION",
+  "arithmetic_pass_and_inputs_supported": null,
+  "expressions": []
+ },
+ {
+  "case_id": "F_215",
+  "case_arithmetic_status": "NO_EXPRESSION",
+  "evidence_grounding": "NO_EXPRESSION",
+  "arithmetic_pass_and_inputs_supported": null,
+  "expressions": []
+ },
+ {
+  "case_id": "F_218",
+  "case_arithmetic_status": "NO_EXPRESSION",
+  "evidence_grounding": "NO_EXPRESSION",
+  "arithmetic_pass_and_inputs_supported": null,
+  "expressions": []
+ },
+ {
+  "case_id": "F_221",
+  "case_arithmetic_status": "NO_EXPRESSION",
+  "evidence_grounding": "NO_EXPRESSION",
+  "arithmetic_pass_and_inputs_supported": null,
+  "expressions": []
+ },
+ {
+  "case_id": "F_223",
+  "case_arithmetic_status": "NO_EXPRESSION",
+  "evidence_grounding": "NO_EXPRESSION",
+  "arithmetic_pass_and_inputs_supported": null,
+  "expressions": []
+ },
+ {
+  "case_id": "F_234",
+  "case_arithmetic_status": "ALL_CHECKED_PASS",
+  "evidence_grounding": "INPUTS_IN_OR_DERIVED_FROM_EVIDENCE",
+  "arithmetic_pass_and_inputs_supported": true,
+  "expressions": [
+   {
+    "expression_index": 0,
+    "kind": "percentage_fraction",
+    "source_expression": "\\text{Growth Rate} = \\left( \\frac{75 - 107}{107} \\right) \\times 100 = \\left( \\frac{-32}{107} \\right) \\times 100 \\approx -29.91\\%",
+    "arithmetic_result": "PASS",
+    "inputs": [
+     {
+      "value": "-32",
+      "unit_hint": null,
+      "match_class": "DERIVED_FROM_EVIDENCE",
+      "evidence_refs": [
+       "text_22"
+      ],
+      "evidence_raw": [
+       "$ 62",
+       "$ 94"
+      ],
+      "note": "$ 62 - $ 94 in text_22"
+     },
+     {
+      "value": "107",
+      "unit_hint": null,
+      "match_class": "EVIDENCE_EXACT",
+      "evidence_refs": [
+       "text_23"
+      ],
+      "evidence_raw": [
+       "$ 107"
+      ],
+      "note": ""
+     }
+    ],
+    "grounding": "INPUTS_IN_OR_DERIVED_FROM_EVIDENCE"
+   }
+  ]
+ },
+ {
+  "case_id": "F_236",
+  "case_arithmetic_status": "NO_EXPRESSION",
+  "evidence_grounding": "NO_EXPRESSION",
+  "arithmetic_pass_and_inputs_supported": null,
+  "expressions": []
+ },
+ {
+  "case_id": "F_251",
+  "case_arithmetic_status": "NO_EXPRESSION",
+  "evidence_grounding": "NO_EXPRESSION",
+  "arithmetic_pass_and_inputs_supported": null,
+  "expressions": []
+ },
+ {
+  "case_id": "F_263",
+  "case_arithmetic_status": "NO_EXPRESSION",
+  "evidence_grounding": "NO_EXPRESSION",
+  "arithmetic_pass_and_inputs_supported": null,
+  "expressions": []
+ },
+ {
+  "case_id": "F_265",
+  "case_arithmetic_status": "NO_EXPRESSION",
+  "evidence_grounding": "NO_EXPRESSION",
+  "arithmetic_pass_and_inputs_supported": null,
+  "expressions": []
+ },
+ {
+  "case_id": "F_277",
+  "case_arithmetic_status": "ALL_CHECKED_PASS",
+  "evidence_grounding": "ALL_INPUTS_IN_EVIDENCE",
+  "arithmetic_pass_and_inputs_supported": true,
+  "expressions": [
+   {
+    "expression_index": 0,
+    "kind": "binary_equation",
+    "source_expression": "375,000,000 \\times 0.05 = 18,750,000",
+    "arithmetic_result": "PASS",
+    "inputs": [
+     {
+      "value": "375000000",
+      "unit_hint": null,
+      "match_class": "EVIDENCE_SCALED",
+      "evidence_refs": [
+       "text_2",
+       "text_22",
+       "text_3"
+      ],
+      "evidence_raw": [
+       "$ 375",
+       "$ 375",
+       "$ 375",
+       "$ 375"
+      ],
+      "note": "value appears in 3 places"
+     },
+     {
+      "value": "0.05",
+      "unit_hint": null,
+      "match_class": "EVIDENCE_PERCENT_AS_RATIO",
+      "evidence_refs": [
+       "text_2",
+       "text_3"
+      ],
+      "evidence_raw": [
+       "5.0%",
+       "5.0%",
+       "5.0%"
+      ],
+      "note": ""
+     }
+    ],
+    "grounding": "ALL_INPUTS_IN_EVIDENCE"
+   }
+  ]
+ },
+ {
+  "case_id": "F_278",
+  "case_arithmetic_status": "ARITHMETIC_FAIL_PRESENT",
+  "evidence_grounding": "INPUTS_IN_OR_DERIVED_FROM_EVIDENCE",
+  "arithmetic_pass_and_inputs_supported": false,
+  "expressions": [
+   {
+    "expression_index": 0,
+    "kind": "binary_equation",
+    "source_expression": "9.981 \\text{ billion} + 6.788 \\text{ billion} = 16.769 \\text{ billion}",
+    "arithmetic_result": "PASS",
+    "inputs": [
+     {
+      "value": "9.981",
+      "unit_hint": "billion",
+      "match_class": "EVIDENCE_SCALED",
+      "evidence_refs": [
+       "table_row_4_col_1"
+      ],
+      "evidence_raw": [
+       "9981"
+      ],
+      "note": ""
+     },
+     {
+      "value": "6.788",
+      "unit_hint": "billion",
+      "match_class": "EVIDENCE_SCALED",
+      "evidence_refs": [
+       "table_row_7_col_1"
+      ],
+      "evidence_raw": [
+       "6788"
+      ],
+      "note": ""
+     }
+    ],
+    "grounding": "ALL_INPUTS_IN_EVIDENCE"
+   },
+   {
+    "expression_index": 1,
+    "kind": "percentage_fraction",
+    "source_expression": "\\text{Percentage of Consumer-Related Loans} = \\left( \\frac{16.769}{93.0} \\right) \\times 100 \\approx 18.00\\%",
+    "arithmetic_result": "FAIL",
+    "inputs": [
+     {
+      "value": "16.769",
+      "unit_hint": null,
+      "match_class": "MODEL_INTERMEDIATE",
+      "evidence_refs": [
+       "earlier_step"
+      ],
+      "evidence_raw": [
+       "16.769"
+      ],
+      "note": ""
+     },
+     {
+      "value": "93.0",
+      "unit_hint": null,
+      "match_class": "EVIDENCE_EXACT",
+      "evidence_refs": [
+       "text_1"
+      ],
+      "evidence_raw": [
+       "$ 93.0"
+      ],
+      "note": ""
+     }
+    ],
+    "grounding": "INPUTS_IN_OR_DERIVED_FROM_EVIDENCE"
+   }
+  ]
+ },
+ {
+  "case_id": "F_292",
+  "case_arithmetic_status": "NO_EXPRESSION",
+  "evidence_grounding": "NO_EXPRESSION",
+  "arithmetic_pass_and_inputs_supported": null,
+  "expressions": []
+ },
+ {
+  "case_id": "F_312",
+  "case_arithmetic_status": "NO_EXPRESSION",
+  "evidence_grounding": "NO_EXPRESSION",
+  "arithmetic_pass_and_inputs_supported": null,
+  "expressions": []
+ },
+ {
+  "case_id": "F_319",
+  "case_arithmetic_status": "NO_EXPRESSION",
+  "evidence_grounding": "NO_EXPRESSION",
+  "arithmetic_pass_and_inputs_supported": null,
+  "expressions": []
+ },
+ {
+  "case_id": "F_332",
+  "case_arithmetic_status": "ALL_CHECKED_PASS",
+  "evidence_grounding": "ALL_INPUTS_IN_EVIDENCE",
+  "arithmetic_pass_and_inputs_supported": true,
+  "expressions": [
+   {
+    "expression_index": 0,
+    "kind": "binary_equation",
+    "source_expression": "9.3\\, \\text{million} - 8.4\\, \\text{million} = 0.9\\, \\text{million}",
+    "arithmetic_result": "PASS",
+    "inputs": [
+     {
+      "value": "9.3",
+      "unit_hint": "million",
+      "match_class": "EVIDENCE_EXACT",
+      "evidence_refs": [
+       "text_19"
+      ],
+      "evidence_raw": [
+       "$ 9.3"
+      ],
+      "note": ""
+     },
+     {
+      "value": "8.4",
+      "unit_hint": "million",
+      "match_class": "EVIDENCE_EXACT",
+      "evidence_refs": [
+       "text_19"
+      ],
+      "evidence_raw": [
+       "$ 8.4"
+      ],
+      "note": ""
+     }
+    ],
+    "grounding": "ALL_INPUTS_IN_EVIDENCE"
+   },
+   {
+    "expression_index": 1,
+    "kind": "percentage_fraction",
+    "source_expression": "= \\left( \\frac{0.9\\, \\text{million}}{8.4\\, \\text{million}} \\right) \\times 100 \\approx 10.71\\%",
+    "arithmetic_result": "PASS",
+    "inputs": [
+     {
+      "value": "0.9",
+      "unit_hint": "million",
+      "match_class": "EVIDENCE_EXACT",
+      "evidence_refs": [
+       "text_12"
+      ],
+      "evidence_raw": [
+       "$ 0.9"
+      ],
+      "note": ""
+     },
+     {
+      "value": "8.4",
+      "unit_hint": "million",
+      "match_class": "EVIDENCE_EXACT",
+      "evidence_refs": [
+       "text_19"
+      ],
+      "evidence_raw": [
+       "$ 8.4"
+      ],
+      "note": ""
+     }
+    ],
+    "grounding": "ALL_INPUTS_IN_EVIDENCE"
+   }
+  ]
+ },
+ {
+  "case_id": "F_333",
+  "case_arithmetic_status": "NO_EXPRESSION",
+  "evidence_grounding": "NO_EXPRESSION",
+  "arithmetic_pass_and_inputs_supported": null,
+  "expressions": []
+ },
+ {
+  "case_id": "F_361",
+  "case_arithmetic_status": "NO_EXPRESSION",
+  "evidence_grounding": "NO_EXPRESSION",
+  "arithmetic_pass_and_inputs_supported": null,
+  "expressions": []
+ },
+ {
+  "case_id": "F_362",
+  "case_arithmetic_status": "ALL_CHECKED_PASS",
+  "evidence_grounding": "INPUTS_IN_OR_DERIVED_FROM_EVIDENCE",
+  "arithmetic_pass_and_inputs_supported": true,
+  "expressions": [
+   {
+    "expression_index": 0,
+    "kind": "percentage_fraction",
+    "source_expression": "\\text{Growth Rate} = \\left( \\frac{535}{4535} \\right) \\times 100 \\approx 11.80\\%",
+    "arithmetic_result": "PASS",
+    "inputs": [
+     {
+      "value": "535",
+      "unit_hint": null,
+      "match_class": "DERIVED_FROM_EVIDENCE",
+      "evidence_refs": [
+       "table_row_1_col_1",
+       "table_row_1_col_2"
+      ],
+      "evidence_raw": [
+       "$ 5070",
+       "$ 4535"
+      ],
+      "note": "$ 5070 - $ 4535 in table_1"
+     },
+     {
+      "value": "4535",
+      "unit_hint": null,
+      "match_class": "EVIDENCE_EXACT",
+      "evidence_refs": [
+       "table_row_1_col_2",
+       "text_10"
+      ],
+      "evidence_raw": [
+       "$ 4535",
+       "$ 4535"
+      ],
+      "note": "value appears in 2 places"
+     }
+    ],
+    "grounding": "INPUTS_IN_OR_DERIVED_FROM_EVIDENCE"
+   }
+  ]
+ },
+ {
+  "case_id": "F_363",
+  "case_arithmetic_status": "NO_EXPRESSION",
+  "evidence_grounding": "NO_EXPRESSION",
+  "arithmetic_pass_and_inputs_supported": null,
+  "expressions": []
+ },
+ {
+  "case_id": "F_364",
+  "case_arithmetic_status": "NO_EXPRESSION",
+  "evidence_grounding": "NO_EXPRESSION",
+  "arithmetic_pass_and_inputs_supported": null,
+  "expressions": []
+ },
+ {
+  "case_id": "F_370",
+  "case_arithmetic_status": "NO_EXPRESSION",
+  "evidence_grounding": "NO_EXPRESSION",
+  "arithmetic_pass_and_inputs_supported": null,
+  "expressions": []
+ },
+ {
+  "case_id": "F_371",
+  "case_arithmetic_status": "NO_EXPRESSION",
+  "evidence_grounding": "NO_EXPRESSION",
+  "arithmetic_pass_and_inputs_supported": null,
+  "expressions": []
+ },
+ {
+  "case_id": "F_372",
+  "case_arithmetic_status": "ALL_CHECKED_PASS",
+  "evidence_grounding": "INPUTS_IN_OR_DERIVED_FROM_EVIDENCE",
+  "arithmetic_pass_and_inputs_supported": true,
+  "expressions": [
+   {
+    "expression_index": 0,
+    "kind": "percentage_fraction",
+    "source_expression": "= \\left( \\frac{0.45}{10.79} \\right) \\times 100 \\approx 4.17\\%",
+    "arithmetic_result": "PASS",
+    "inputs": [
+     {
+      "value": "0.45",
+      "unit_hint": null,
+      "match_class": "DERIVED_FROM_EVIDENCE",
+      "evidence_refs": [
+       "table_row_4_col_1",
+       "table_row_4_col_2"
+      ],
+      "evidence_raw": [
+       "11.24",
+       "10.79"
+      ],
+      "note": "11.24 - 10.79 in table_4"
+     },
+     {
+      "value": "10.79",
+      "unit_hint": null,
+      "match_class": "EVIDENCE_EXACT",
+      "evidence_refs": [
+       "table_row_4_col_2"
+      ],
+      "evidence_raw": [
+       "10.79"
+      ],
+      "note": ""
+     }
+    ],
+    "grounding": "INPUTS_IN_OR_DERIVED_FROM_EVIDENCE"
+   }
+  ]
+ },
+ {
+  "case_id": "F_373",
+  "case_arithmetic_status": "NO_EXPRESSION",
+  "evidence_grounding": "NO_EXPRESSION",
+  "arithmetic_pass_and_inputs_supported": null,
+  "expressions": []
+ },
+ {
+  "case_id": "F_376",
+  "case_arithmetic_status": "ALL_CHECKED_PASS",
+  "evidence_grounding": "INPUTS_IN_OR_DERIVED_FROM_EVIDENCE",
+  "arithmetic_pass_and_inputs_supported": true,
+  "expressions": [
+   {
+    "expression_index": 0,
+    "kind": "percentage_fraction",
+    "source_expression": "= \\left(\\frac{-7.8}{8.8}\\right) \\times 100 \\approx -88.64\\%",
+    "arithmetic_result": "PASS",
+    "inputs": [
+     {
+      "value": "-7.8",
+      "unit_hint": null,
+      "match_class": "DERIVED_FROM_EVIDENCE",
+      "evidence_refs": [
+       "table_row_2_col_1",
+       "table_row_2_col_2"
+      ],
+      "evidence_raw": [
+       "1.0",
+       "8.8"
+      ],
+      "note": "1.0 - 8.8 in table_2"
+     },
+     {
+      "value": "8.8",
+      "unit_hint": null,
+      "match_class": "EVIDENCE_EXACT",
+      "evidence_refs": [
+       "table_row_2_col_2"
+      ],
+      "evidence_raw": [
+       "8.8"
+      ],
+      "note": ""
+     }
+    ],
+    "grounding": "INPUTS_IN_OR_DERIVED_FROM_EVIDENCE"
+   }
+  ]
+ },
+ {
+  "case_id": "F_377",
+  "case_arithmetic_status": "NO_EXPRESSION",
+  "evidence_grounding": "NO_EXPRESSION",
+  "arithmetic_pass_and_inputs_supported": null,
+  "expressions": []
+ },
+ {
+  "case_id": "F_393",
+  "case_arithmetic_status": "NO_EXPRESSION",
+  "evidence_grounding": "NO_EXPRESSION",
+  "arithmetic_pass_and_inputs_supported": null,
+  "expressions": []
+ },
+ {
+  "case_id": "F_411",
+  "case_arithmetic_status": "NO_EXPRESSION",
+  "evidence_grounding": "NO_EXPRESSION",
+  "arithmetic_pass_and_inputs_supported": null,
+  "expressions": []
+ },
+ {
+  "case_id": "F_421",
+  "case_arithmetic_status": "NO_EXPRESSION",
+  "evidence_grounding": "NO_EXPRESSION",
+  "arithmetic_pass_and_inputs_supported": null,
+  "expressions": []
+ },
+ {
+  "case_id": "F_426",
+  "case_arithmetic_status": "ARITHMETIC_FAIL_PRESENT",
+  "evidence_grounding": "ALL_INPUTS_IN_EVIDENCE",
+  "arithmetic_pass_and_inputs_supported": false,
+  "expressions": [
+   {
+    "expression_index": 0,
+    "kind": "percentage_fraction",
+    "source_expression": "\\text{Percentage from land sales} = \\left( \\frac{5,080}{45,708} \\right) \\times 100 | \\text{Percentage from land sales} \\approx 11.09\\%",
+    "arithmetic_result": "FAIL",
+    "inputs": [
+     {
+      "value": "5080",
+      "unit_hint": null,
+      "match_class": "EVIDENCE_EXACT",
+      "evidence_refs": [
+       "table_row_2_col_1"
+      ],
+      "evidence_raw": [
+       "5080"
+      ],
+      "note": ""
+     },
+     {
+      "value": "45708",
+      "unit_hint": null,
+      "match_class": "EVIDENCE_EXACT",
+      "evidence_refs": [
+       "table_row_4_col_1"
+      ],
+      "evidence_raw": [
+       "$ 45708"
+      ],
+      "note": ""
+     }
+    ],
+    "grounding": "ALL_INPUTS_IN_EVIDENCE"
+   }
+  ]
+ },
+ {
+  "case_id": "F_428",
+  "case_arithmetic_status": "NO_EXPRESSION",
+  "evidence_grounding": "NO_EXPRESSION",
+  "arithmetic_pass_and_inputs_supported": null,
+  "expressions": []
+ },
+ {
+  "case_id": "F_430",
+  "case_arithmetic_status": "NO_EXPRESSION",
+  "evidence_grounding": "NO_EXPRESSION",
+  "arithmetic_pass_and_inputs_supported": null,
+  "expressions": []
+ },
+ {
+  "case_id": "F_431",
+  "case_arithmetic_status": "NO_EXPRESSION",
+  "evidence_grounding": "NO_EXPRESSION",
+  "arithmetic_pass_and_inputs_supported": null,
+  "expressions": []
+ },
+ {
+  "case_id": "F_434",
+  "case_arithmetic_status": "NO_EXPRESSION",
+  "evidence_grounding": "NO_EXPRESSION",
+  "arithmetic_pass_and_inputs_supported": null,
+  "expressions": []
+ },
+ {
+  "case_id": "F_453",
+  "case_arithmetic_status": "NO_EXPRESSION",
+  "evidence_grounding": "NO_EXPRESSION",
+  "arithmetic_pass_and_inputs_supported": null,
+  "expressions": []
+ },
+ {
+  "case_id": "F_456",
+  "case_arithmetic_status": "NO_EXPRESSION",
+  "evidence_grounding": "NO_EXPRESSION",
+  "arithmetic_pass_and_inputs_supported": null,
+  "expressions": []
+ },
+ {
+  "case_id": "F_457",
+  "case_arithmetic_status": "NO_EXPRESSION",
+  "evidence_grounding": "NO_EXPRESSION",
+  "arithmetic_pass_and_inputs_supported": null,
+  "expressions": []
+ },
+ {
+  "case_id": "F_463",
+  "case_arithmetic_status": "NO_EXPRESSION",
+  "evidence_grounding": "NO_EXPRESSION",
+  "arithmetic_pass_and_inputs_supported": null,
+  "expressions": []
+ },
+ {
+  "case_id": "F_473",
+  "case_arithmetic_status": "NO_EXPRESSION",
+  "evidence_grounding": "NO_EXPRESSION",
+  "arithmetic_pass_and_inputs_supported": null,
+  "expressions": []
+ },
+ {
+  "case_id": "F_475",
+  "case_arithmetic_status": "NO_EXPRESSION",
+  "evidence_grounding": "NO_EXPRESSION",
+  "arithmetic_pass_and_inputs_supported": null,
+  "expressions": []
+ },
+ {
+  "case_id": "F_487",
+  "case_arithmetic_status": "NO_EXPRESSION",
+  "evidence_grounding": "NO_EXPRESSION",
+  "arithmetic_pass_and_inputs_supported": null,
+  "expressions": []
+ },
+ {
+  "case_id": "F_488",
+  "case_arithmetic_status": "ALL_CHECKED_PASS",
+  "evidence_grounding": "ALL_INPUTS_IN_EVIDENCE",
+  "arithmetic_pass_and_inputs_supported": true,
+  "expressions": [
+   {
+    "expression_index": 0,
+    "kind": "percentage_fraction",
+    "source_expression": "= \\left( \\frac{2.4}{8.8} \\right) \\times 100 | \\approx 27.27\\%",
+    "arithmetic_result": "PASS",
+    "inputs": [
+     {
+      "value": "2.4",
+      "unit_hint": null,
+      "match_class": "EVIDENCE_EXACT",
+      "evidence_refs": [
+       "text_17"
+      ],
+      "evidence_raw": [
+       "$ 2.4"
+      ],
+      "note": ""
+     },
+     {
+      "value": "8.8",
+      "unit_hint": null,
+      "match_class": "EVIDENCE_EXACT",
+      "evidence_refs": [
+       "table_row_5_col_2"
+      ],
+      "evidence_raw": [
+       "8.8"
+      ],
+      "note": ""
+     }
+    ],
+    "grounding": "ALL_INPUTS_IN_EVIDENCE"
+   }
+  ]
+ }
+]

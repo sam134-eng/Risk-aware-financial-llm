@@ -1,0 +1,100 @@
+{
+  "benchmark_sha256": "bb79a6dbe6cc6b5c6edc03a158ce7473f60a8faacd0c7af1a457b2af9ddd65d3",
+  "skipped_cases": {
+    "unsupported_program": 16,
+    "manual_case": 16
+  },
+  "conditions": {
+    "baseline": {
+      "expected_status": "PASS",
+      "evaluated": 468,
+      "skipped": 0,
+      "as_expected": 463,
+      "rate": 0.9893,
+      "status_counts": {
+        "PASS": 463,
+        "PARTIAL": 5
+      },
+      "not_as_expected_cases": [
+        "F_026",
+        "F_041",
+        "F_054",
+        "F_070",
+        "F_410"
+      ]
+    },
+    "scale_x1000": {
+      "expected_status": "FAIL",
+      "evaluated": 468,
+      "skipped": 0,
+      "as_expected": 468,
+      "rate": 1.0,
+      "status_counts": {
+        "FAIL": 468
+      },
+      "not_as_expected_cases": []
+    },
+    "sign_flip": {
+      "expected_status": "FAIL",
+      "evaluated": 468,
+      "skipped": 0,
+      "as_expected": 468,
+      "rate": 1.0,
+      "status_counts": {
+        "FAIL": 468
+      },
+      "not_as_expected_cases": []
+    },
+    "transcription": {
+      "expected_status": "FAIL",
+      "evaluated": 468,
+      "skipped": 0,
+      "as_expected": 466,
+      "rate": 0.9957,
+      "status_counts": {
+        "FAIL": 466,
+        "PASS": 2
+      },
+      "not_as_expected_cases": [
+        "F_154",
+        "F_481"
+      ]
+    },
+    "wrong_reference": {
+      "expected_status": "FAIL",
+      "evaluated": 468,
+      "skipped": 0,
+      "as_expected": 468,
+      "rate": 1.0,
+      "status_counts": {
+        "FAIL": 468
+      },
+      "not_as_expected_cases": []
+    },
+    "missing_source": {
+      "expected_status": "PARTIAL",
+      "evaluated": 468,
+      "skipped": 0,
+      "as_expected": 468,
+      "rate": 1.0,
+      "status_counts": {
+        "PARTIAL": 468
+      },
+      "not_as_expected_cases": []
+    },
+    "wrong_period_cited": {
+      "expected_status": "PASS",
+      "evaluated": 254,
+      "skipped": 214,
+      "as_expected": 253,
+      "rate": 0.9961,
+      "status_counts": {
+        "PASS": 253,
+        "PARTIAL": 1
+      },
+      "not_as_expected_cases": [
+        "F_070"
+      ]
+    }
+  }
+}

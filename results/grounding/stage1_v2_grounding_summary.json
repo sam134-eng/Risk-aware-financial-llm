@@ -1,0 +1,32 @@
+{
+  "inputs": {
+    "stage1_results_sha256": "5e7bb6dab5c7ca78137162a356d0eaccc11555b51d34c3389382cc07ea5a69b7",
+    "benchmark_sha256": "bb79a6dbe6cc6b5c6edc03a158ce7473f60a8faacd0c7af1a457b2af9ddd65d3"
+  },
+  "gold_used": false,
+  "cases": 80,
+  "input_match_classes": {
+    "EVIDENCE_EXACT": 40,
+    "DERIVED_FROM_EVIDENCE": 13,
+    "NOT_FOUND": 4,
+    "MODEL_INTERMEDIATE": 3,
+    "EVIDENCE_RESCALED": 1,
+    "EVIDENCE_PERCENT_AS_RATIO": 2,
+    "EVIDENCE_SIGN_DIFFERS": 1,
+    "QUESTION": 1,
+    "EVIDENCE_SCALED": 3
+  },
+  "expression_grounding": {
+    "INPUTS_IN_OR_DERIVED_FROM_EVIDENCE": 15,
+    "SOME_INPUTS_NOT_FOUND": 4,
+    "ALL_INPUTS_IN_EVIDENCE": 15
+  },
+  "case_grounding": {
+    "NO_EXPRESSION": 53,
+    "SOME_INPUTS_NOT_FOUND": 3,
+    "ALL_INPUTS_IN_EVIDENCE": 12,
+    "INPUTS_IN_OR_DERIVED_FROM_EVIDENCE": 12
+  },
+  "cases_arithmetic_pass_and_inputs_supported": 19,
+  "caveat": "Inputs supported by evidence does not mean the right evidence or the right financial calculation was used."
+}
