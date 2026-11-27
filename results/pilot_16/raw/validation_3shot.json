@@ -1,0 +1,146 @@
+{
+  "total": 16,
+  "statuses": {
+    "ABSTAIN": 1,
+    "ARITHMETIC_MISMATCH": 4,
+    "STRUCTURALLY_VALID": 11
+  },
+  "cases": [
+    {
+      "question_id": "F_011",
+      "checks": {
+        "status": "ABSTAIN",
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "question_id": "F_015",
+      "checks": {
+        "status": "ARITHMETIC_MISMATCH",
+        "errors": [],
+        "warnings": [
+          "claimed_answer_arithmetic_mismatch"
+        ]
+      }
+    },
+    {
+      "question_id": "F_017",
+      "checks": {
+        "status": "STRUCTURALLY_VALID",
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "question_id": "F_027",
+      "checks": {
+        "status": "ARITHMETIC_MISMATCH",
+        "errors": [],
+        "warnings": [
+          "claimed_answer_arithmetic_mismatch"
+        ]
+      }
+    },
+    {
+      "question_id": "F_033",
+      "checks": {
+        "status": "STRUCTURALLY_VALID",
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "question_id": "F_071",
+      "checks": {
+        "status": "STRUCTURALLY_VALID",
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "question_id": "F_089",
+      "checks": {
+        "status": "STRUCTURALLY_VALID",
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "question_id": "F_098",
+      "checks": {
+        "status": "STRUCTURALLY_VALID",
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "question_id": "F_106",
+      "checks": {
+        "status": "STRUCTURALLY_VALID",
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "question_id": "F_127",
+      "checks": {
+        "status": "ARITHMETIC_MISMATCH",
+        "errors": [],
+        "warnings": [
+          "claimed_answer_arithmetic_mismatch"
+        ]
+      }
+    },
+    {
+      "question_id": "F_151",
+      "checks": {
+        "status": "STRUCTURALLY_VALID",
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "question_id": "F_183",
+      "checks": {
+        "status": "STRUCTURALLY_VALID",
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "question_id": "F_189",
+      "checks": {
+        "status": "STRUCTURALLY_VALID",
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "question_id": "F_278",
+      "checks": {
+        "status": "ARITHMETIC_MISMATCH",
+        "errors": [],
+        "warnings": [
+          "claimed_answer_arithmetic_mismatch"
+        ]
+      }
+    },
+    {
+      "question_id": "F_332",
+      "checks": {
+        "status": "STRUCTURALLY_VALID",
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "question_id": "F_376",
+      "checks": {
+        "status": "STRUCTURALLY_VALID",
+        "errors": [],
+        "warnings": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "total": 2,
+  "statuses": {
+    "ARITHMETIC_MISMATCH": 2
+  },
+  "cases": [
+    {
+      "question_id": "F_011",
+      "checks": {
+        "status": "ARITHMETIC_MISMATCH",
+        "errors": [],
+        "warnings": [
+          "claimed_answer_arithmetic_mismatch"
+        ]
+      }
+    },
+    {
+      "question_id": "F_015",
+      "checks": {
+        "status": "ARITHMETIC_MISMATCH",
+        "errors": [],
+        "warnings": [
+          "claimed_answer_arithmetic_mismatch"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+group,label,description,cases,percent_of_80,model,detected_by,needs_human_review,example_cases
+Benchmark,gold_reference_issue,Gold answer disagrees with its own program or was flagged in review,13,16.2,gpt-4o-mini,gold audit + manual review,False,"F_048, F_147, F_151, F_162, F_183"
+Evidence,unit_or_scale_error,Final answer off by a power of 1000,1,1.2,gpt-4o-mini,answer evaluator,False,F_073
+Evidence,unsupported_number,Equation input not found in the evidence,3,3.8,gpt-4o-mini,grounding locator,True,"F_071, F_011, F_015"
+Arithmetic,arithmetic_error,A written equation is arithmetically wrong,7,8.8,gpt-4o-mini,Stage 1 v2 (Z3),False,"F_027, F_125, F_127, F_278, F_426"
+Arithmetic,rounding_only,Within 1% of gold but not equal at gold precision,7,8.8,gpt-4o-mini,answer evaluator,False,"F_017, F_027, F_076, F_131, F_160"
+Financial reasoning,sign_or_direction_error,"Right magnitude, wrong sign / direction",2,2.5,gpt-4o-mini,answer evaluator,False,"F_067, F_292"
+Financial reasoning,wrong_value_unexplained,"Wrong value; arithmetic and inputs look fine or were not extracted (metric, denominator or period suspected)",22,27.5,gpt-4o-mini,answer evaluator,True,"F_048, F_057, F_086, F_089, F_128"
+LLM behaviour,refusal,Model said the question cannot be answered,2,2.5,gpt-4o-mini,answer evaluator,False,"F_377, F_430"
+LLM behaviour,no_final_answer,No final value stated (e.g. lists values only),3,3.8,gpt-4o-mini,answer evaluator,False,"F_174, F_370, F_434"
+Formalization,not_formalizable_by_stage1,No equation could be extracted by Stage 1 v2,53,66.2,gpt-4o-mini,Stage 1 v2,False,"F_037, F_048, F_057, F_067, F_073"

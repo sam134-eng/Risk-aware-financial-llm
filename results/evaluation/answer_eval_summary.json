@@ -1,0 +1,265 @@
+{
+  "model": "gpt-4o-mini (stored answers in results/verification_results.json; decoding settings not recorded)",
+  "inputs": {
+    "benchmark_sha256": "bb79a6dbe6cc6b5c6edc03a158ce7473f60a8faacd0c7af1a457b2af9ddd65d3",
+    "verification_results_sha256": "9648bec63a5dacd826f27a24d2b67b5fc19388ac8c196348ce1fa60d7e57c404"
+  },
+  "all_500": {
+    "lenient": {
+      "n": 483,
+      "correct": 349,
+      "accuracy": 0.7226
+    },
+    "strict": {
+      "n": 483,
+      "correct": 279,
+      "accuracy": 0.5776
+    },
+    "outcomes": {
+      "ROUNDING_ONLY": 57,
+      "CORRECT": 279,
+      "INCORRECT": 101,
+      "SCALE_MISMATCH": 10,
+      "SIGN_MISMATCH": 6,
+      "NOT_EVALUATED": 17,
+      "SIGN_CONVENTION": 13,
+      "REFUSED": 11,
+      "NO_ANSWER": 6
+    },
+    "lenient_excluding_flagged_gold": {
+      "n": 446,
+      "correct": 337,
+      "accuracy": 0.7556
+    }
+  },
+  "finqa_484": {
+    "lenient": {
+      "n": 483,
+      "correct": 349,
+      "accuracy": 0.7226
+    },
+    "strict": {
+      "n": 483,
+      "correct": 279,
+      "accuracy": 0.5776
+    },
+    "outcomes": {
+      "ROUNDING_ONLY": 57,
+      "CORRECT": 279,
+      "INCORRECT": 101,
+      "SCALE_MISMATCH": 10,
+      "SIGN_MISMATCH": 6,
+      "NOT_EVALUATED": 1,
+      "SIGN_CONVENTION": 13,
+      "REFUSED": 11,
+      "NO_ANSWER": 6
+    },
+    "lenient_excluding_flagged_gold": {
+      "n": 446,
+      "correct": 337,
+      "accuracy": 0.7556
+    }
+  },
+  "selected_80": {
+    "lenient": {
+      "n": 75,
+      "correct": 44,
+      "accuracy": 0.5867
+    },
+    "strict": {
+      "n": 75,
+      "correct": 33,
+      "accuracy": 0.44
+    },
+    "outcomes": {
+      "ROUNDING_ONLY": 7,
+      "CORRECT": 33,
+      "NOT_EVALUATED": 5,
+      "INCORRECT": 23,
+      "SIGN_MISMATCH": 2,
+      "SCALE_MISMATCH": 1,
+      "SIGN_CONVENTION": 4,
+      "NO_ANSWER": 3,
+      "REFUSED": 2
+    },
+    "lenient_excluding_flagged_gold": {
+      "n": 62,
+      "correct": 42,
+      "accuracy": 0.6774
+    }
+  },
+  "by_verifier_status": {
+    "NOT_APPLICABLE": {
+      "lenient": {
+        "n": 337,
+        "correct": 244,
+        "accuracy": 0.724
+      },
+      "strict": {
+        "n": 337,
+        "correct": 194,
+        "accuracy": 0.5757
+      },
+      "outcomes": {
+        "ROUNDING_ONLY": 44,
+        "CORRECT": 194,
+        "INCORRECT": 68,
+        "SIGN_MISMATCH": 3,
+        "NOT_EVALUATED": 13,
+        "SCALE_MISMATCH": 5,
+        "REFUSED": 11,
+        "SIGN_CONVENTION": 6,
+        "NO_ANSWER": 6
+      },
+      "lenient_excluding_flagged_gold": {
+        "n": 309,
+        "correct": 237,
+        "accuracy": 0.767
+      }
+    },
+    "PASS": {
+      "lenient": {
+        "n": 122,
+        "correct": 93,
+        "accuracy": 0.7623
+      },
+      "strict": {
+        "n": 122,
+        "correct": 75,
+        "accuracy": 0.6148
+      },
+      "outcomes": {
+        "CORRECT": 75,
+        "INCORRECT": 24,
+        "SIGN_CONVENTION": 7,
+        "ROUNDING_ONLY": 11,
+        "SIGN_MISMATCH": 3,
+        "SCALE_MISMATCH": 2,
+        "NOT_EVALUATED": 4
+      },
+      "lenient_excluding_flagged_gold": {
+        "n": 117,
+        "correct": 90,
+        "accuracy": 0.7692
+      }
+    },
+    "FAIL": {
+      "lenient": {
+        "n": 24,
+        "correct": 12,
+        "accuracy": 0.5
+      },
+      "strict": {
+        "n": 24,
+        "correct": 10,
+        "accuracy": 0.4167
+      },
+      "outcomes": {
+        "INCORRECT": 9,
+        "SCALE_MISMATCH": 3,
+        "CORRECT": 10,
+        "ROUNDING_ONLY": 2
+      },
+      "lenient_excluding_flagged_gold": {
+        "n": 20,
+        "correct": 10,
+        "accuracy": 0.5
+      }
+    }
+  },
+  "by_reasoning_pattern": {
+    "comparison_yes_no": {
+      "n": 11,
+      "correct": 10,
+      "accuracy": 0.9091
+    },
+    "difference": {
+      "n": 59,
+      "correct": 36,
+      "accuracy": 0.6102
+    },
+    "manual_formula": {
+      "n": 0,
+      "correct": 0,
+      "accuracy": null
+    },
+    "multi_step": {
+      "n": 37,
+      "correct": 17,
+      "accuracy": 0.4595
+    },
+    "other_two_step": {
+      "n": 24,
+      "correct": 18,
+      "accuracy": 0.75
+    },
+    "percentage_change": {
+      "n": 116,
+      "correct": 96,
+      "accuracy": 0.8276
+    },
+    "product": {
+      "n": 25,
+      "correct": 13,
+      "accuracy": 0.52
+    },
+    "ratio_or_share": {
+      "n": 162,
+      "correct": 130,
+      "accuracy": 0.8025
+    },
+    "sum": {
+      "n": 33,
+      "correct": 22,
+      "accuracy": 0.6667
+    },
+    "table_aggregation": {
+      "n": 16,
+      "correct": 7,
+      "accuracy": 0.4375
+    }
+  },
+  "gold_consistency_finqa": {
+    "ROUNDING_DIFFERENCE": 14,
+    "CONSISTENT": 364,
+    "INCONSISTENT": 30,
+    "NOT_CHECKED": 76
+  },
+  "gold_inconsistent_cases": [
+    "F_021",
+    "F_036",
+    "F_049",
+    "F_068",
+    "F_110",
+    "F_112",
+    "F_141",
+    "F_147",
+    "F_151",
+    "F_155",
+    "F_156",
+    "F_183",
+    "F_195",
+    "F_222",
+    "F_241",
+    "F_270",
+    "F_316",
+    "F_332",
+    "F_368",
+    "F_369",
+    "F_379",
+    "F_394",
+    "F_410",
+    "F_415",
+    "F_418",
+    "F_430",
+    "F_440",
+    "F_442",
+    "F_474",
+    "F_488"
+  ],
+  "definitions": {
+    "lenient": "CORRECT, ROUNDING_ONLY (<=1% rel.) or SIGN_CONVENTION",
+    "strict": "equal at the gold answer's displayed precision",
+    "excluding_flagged_gold": "drops cases whose gold_answer disagrees with its own program or that a team review flagged"
+  }
+}

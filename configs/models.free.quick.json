@@ -1,0 +1,48 @@
+{
+  "_comment": "Quick plan: 3 new models (gpt-oss-120b, Qwen, Gemma 4 31B) + Llama judge. Free-only setup. Copy exact model IDs from each provider's model page (console.groq.com/docs/models, openrouter.ai/models, ollama.com) and check they are still free before running. Groq free tier: per-model limits, roughly 30 req/min, 1,000 req/day, 8,000 tokens/min, 200,000 tokens/day - the TOKEN limits are what bind here, so calls are spaced ~20 s apart and capped at 75 per run (prompts measured at ~1.1-1.2k tokens).",
+  "prompt_version": "answer-v1/ir-v1",
+  "seed": 0,
+  "cases": "selected_80",
+  "conditions": [
+    "direct",
+    "json_ir"
+  ],
+  "models": [
+    {
+      "provider": "groq",
+      "model": "openai/gpt-oss-120b",
+      "temperature": 0.0,
+      "max_tokens": 1500,
+      "reasoning_effort": "medium",
+      "min_interval_s": 20,
+      "max_calls_per_run": 75,
+      "_note": "OpenAI open-weight 120B; too big for a laptop, free on Groq"
+    },
+    {
+      "provider": "groq",
+      "model": "REPLACE_WITH_GROQ_QWEN_MODEL_ID",
+      "temperature": 0.0,
+      "max_tokens": 1500,
+      "min_interval_s": 20,
+      "max_calls_per_run": 75,
+      "_note": "copy the current Qwen model ID from console.groq.com/docs/models"
+    },
+    {
+      "provider": "google_ai_studio",
+      "model": "gemma-4-31b-it",
+      "temperature": 0.0,
+      "max_tokens": 900,
+      "min_interval_s": 5,
+      "_note": "free Gemini API key (env GEMINI_API_KEY)"
+    }
+  ],
+  "judge": {
+    "provider": "groq",
+    "model": "REPLACE_WITH_GROQ_LLAMA_MODEL_ID",
+    "temperature": 0.0,
+    "max_tokens": 600,
+    "repeats": 2,
+    "min_interval_s": 20,
+    "_note": "judge from a family NOT tested above (e.g. Llama on Groq); copy exact ID from console.groq.com/docs/models"
+  }
+}

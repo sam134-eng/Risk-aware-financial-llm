@@ -1,0 +1,23 @@
+{
+  "label": "8-shot",
+  "irs": 16,
+  "primary_class": {
+    "ABSTAIN": 1,
+    "CLAIM_MISMATCH": 3,
+    "CORRECT": 9,
+    "GOLD_DISPUTED": 3
+  },
+  "grounding": {
+    "NOT_APPLICABLE": 1,
+    "PASS": 15
+  },
+  "execution": {
+    "NO_TARGET": 1,
+    "MISMATCH": 3,
+    "OK": 10,
+    "OK_ROUNDED_CLAIM": 2
+  },
+  "grounding_error_codes": {
+    "NOTHING_TO_GROUND": 1
+  }
+}

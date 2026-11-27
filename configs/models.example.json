@@ -1,0 +1,14 @@
+{
+  "_comment": "Copy to configs/models.json and set API keys as environment variables. Nothing is run without keys.",
+  "prompt_version": "answer-v1/ir-v1",
+  "seed": 0,
+  "cases": "selected_80",
+  "conditions": ["direct", "json_ir"],
+  "models": [
+    {"provider": "openai", "model": "gpt-4o-mini", "temperature": 0.0, "max_tokens": 900, "api_key_env": "OPENAI_API_KEY"},
+    {"provider": "openai", "model": "gpt-4o", "temperature": 0.0, "max_tokens": 900, "api_key_env": "OPENAI_API_KEY"},
+    {"provider": "anthropic", "model": "claude-sonnet-5-5", "temperature": 0.0, "max_tokens": 900, "api_key_env": "FINVERIFY_ANTHROPIC_API_KEY"},
+    {"provider": "openai_compatible", "model": "meta-llama/Llama-3.3-70B-Instruct", "base_url": "https://api.together.xyz/v1", "temperature": 0.0, "max_tokens": 900, "api_key_env": "TOGETHER_API_KEY"}
+  ],
+  "judge": {"provider": "openai", "model": "gpt-4o", "temperature": 0.0, "max_tokens": 600, "repeats": 3, "api_key_env": "OPENAI_API_KEY"}
+}

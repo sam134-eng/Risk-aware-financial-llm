@@ -1,0 +1,75 @@
+You are a meticulous financial analyst auditing an AI model's answer to a question about a company filing. Judge ONLY from the evidence given. You are not given a reference answer. Work out the correct calculation yourself from the evidence, then compare. Reply with one JSON object and nothing else.
+
+## Question
+what percentage of total debt maturity occurred in 2018 and thereafter?
+
+## Evidence from the filing
+Text before table:
+[text_0] devon energy corporation and subsidiaries notes to consolidated financial statements 2013 ( continued ) debt maturities as of december 31 , 2012 , excluding premiums and discounts , are as follows ( in millions ) : .
+
+Table:
+[row 0] 2013 | $ 3189
+[row 1] 2014 | 500
+[row 2] 2015 | 2014
+[row 3] 2016 | 500
+[row 4] 2017 | 750
+[row 5] 2018 and thereafter | 6725
+[row 6] total | $ 11664
+
+Text after table:
+[text_1] credit lines devon has a $ 3.0 billion syndicated , unsecured revolving line of credit ( the 201csenior credit facility 201d ) .
+[text_2] the senior credit facility has an initial maturity date of october 24 , 2017 .
+[text_3] however , prior to the maturity date , devon has the option to extend the maturity for up to two additional one-year periods , subject to the approval of the lenders .
+[text_4] amounts borrowed under the senior credit facility may , at the election of devon , bear interest at various fixed rate options for periods of up to twelve months .
+[text_5] such rates are generally less than the prime rate .
+[text_6] however , devon may elect to borrow at the prime rate .
+[text_7] the senior credit facility currently provides for an annual facility fee of $ 3.8 million that is payable quarterly in arrears .
+[text_8] as of december 31 , 2012 , there were no borrowings under the senior credit facility .
+[text_9] the senior credit facility contains only one material financial covenant .
+[text_10] this covenant requires devon 2019s ratio of total funded debt to total capitalization , as defined in the credit agreement , to be no greater than 65 percent .
+[text_11] the credit agreement contains definitions of total funded debt and total capitalization that include adjustments to the respective amounts reported in the accompanying financial statements .
+[text_12] also , total capitalization is adjusted to add back noncash financial write-downs such as full cost ceiling impairments or goodwill impairments .
+[text_13] as of december 31 , 2012 , devon was in compliance with this covenant with a debt-to- capitalization ratio of 25.4 percent .
+[text_14] commercial paper devon has access to $ 5.0 billion of short-term credit under its commercial paper program .
+[text_15] commercial paper debt generally has a maturity of between 1 and 90 days , although it can have a maturity of up to 365 days , and bears interest at rates agreed to at the time of the borrowing .
+[text_16] the interest rate is generally based on a standard index such as the federal funds rate , libor , or the money market rate as found in the commercial paper market .
+[text_17] as of december 31 , 2012 , devon 2019s weighted average borrowing rate on its commercial paper borrowings was 0.37 percent .
+[text_18] other debentures and notes following are descriptions of the various other debentures and notes outstanding at december 31 , 2012 , as listed in the table presented at the beginning of this note. .
+
+## Model answer to audit
+To find the percentage of total debt maturity that occurred in 2018 and thereafter, we can use the following information:
+
+- Total debt maturity in 2018 and thereafter: $6,725 million
+- Total debt maturity: $11,664 million
+
+**Calculation:**
+
+Percentage of total debt maturity in 2018 and thereafter:
+\[
+\text{Percentage} = \left( \frac{\text{Debt maturity in 2018 and thereafter}}{\text{Total debt maturity}} \right) \times 100
+\]
+\[
+\text{Percentage} = \left( \frac{6725}{11664} \right) \times 100 \approx 57.66\%
+\]
+
+**Answer:**
+Approximately **57.66%** of total debt maturity occurred in 2018 and thereafter.
+
+## Task
+Evaluate the model answer on each dimension using exactly one label from
+["correct", "incorrect", "not_applicable", "cannot_determine"]:
+- answer_correctness: is the final answer right, given the evidence?
+- grounding_correctness: are the numbers used actually in the evidence (right rows/years/spans)?
+- equation_correctness: is the formula/arithmetic correct?
+- metric_correctness: is it the financial metric the question asks for?
+- numerator_denominator_correctness: are numerator and denominator the right quantities?
+- period_correctness: are the right years/periods and comparison direction used?
+- unit_correctness: are units and scale (thousands/millions/%) handled correctly?
+Use "not_applicable" when a dimension does not apply (e.g. no division) and
+"cannot_determine" when the evidence is insufficient to decide.
+
+Return JSON with exactly these keys:
+{"question_id": "F_017", "answer_correctness": "...", "grounding_correctness": "...",
+"equation_correctness": "...", "metric_correctness": "...", "numerator_denominator_correctness": "...",
+"period_correctness": "...", "unit_correctness": "...", "overall_reasoning_quality": <integer 1-5>,
+"errors": [<zero or more of wrong_cell_or_span, unsupported_number, transcription_error, unit_or_scale_error, missing_evidence, wrong_metric, wrong_numerator, wrong_denominator, wrong_period, wrong_direction, percentage_error, ratio_error, average_error, compounding_error, arithmetic_error, rounding_error, answer_inconsistent_with_reasoning, unjustified_refusal, hallucination, other>], "explanation": "<at most 60 words>"}

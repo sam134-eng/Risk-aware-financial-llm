@@ -1,0 +1,19 @@
+{
+  "label": "final-3shot",
+  "irs": 16,
+  "primary_class": {
+    "CLAIM_MISMATCH": 3,
+    "CORRECT": 9,
+    "ANSWER_ERROR": 1,
+    "GOLD_DISPUTED": 3
+  },
+  "grounding": {
+    "PASS": 16
+  },
+  "execution": {
+    "MISMATCH": 3,
+    "OK": 11,
+    "OK_ROUNDED_CLAIM": 2
+  },
+  "grounding_error_codes": {}
+}

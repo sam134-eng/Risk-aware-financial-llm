@@ -1,0 +1,11 @@
+Group,Category,Cases,% of 80,Detected by,Needs human review,Examples
+Benchmark,gold_reference_issue,13,16.2,gold audit + manual review,False,"F_048, F_147, F_151, F_162, F_183"
+Evidence,unit_or_scale_error,1,1.2,answer evaluator,False,F_073
+Evidence,unsupported_number,3,3.8,grounding locator,True,"F_071, F_011, F_015"
+Arithmetic,arithmetic_error,7,8.8,Stage 1 v2 (Z3),False,"F_027, F_125, F_127, F_278, F_426"
+Arithmetic,rounding_only,7,8.8,answer evaluator,False,"F_017, F_027, F_076, F_131, F_160"
+Financial reasoning,sign_or_direction_error,2,2.5,answer evaluator,False,"F_067, F_292"
+Financial reasoning,wrong_value_unexplained,22,27.5,answer evaluator,True,"F_048, F_057, F_086, F_089, F_128"
+LLM behaviour,refusal,2,2.5,answer evaluator,False,"F_377, F_430"
+LLM behaviour,no_final_answer,3,3.8,answer evaluator,False,"F_174, F_370, F_434"
+Formalization,not_formalizable_by_stage1,53,66.2,Stage 1 v2,False,"F_037, F_048, F_057, F_067, F_073"

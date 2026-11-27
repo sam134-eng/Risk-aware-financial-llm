@@ -1,0 +1,14 @@
+{
+  "label": "F011-rerun-8shot",
+  "irs": 1,
+  "primary_class": {
+    "CLAIM_MISMATCH": 1
+  },
+  "grounding": {
+    "PASS": 1
+  },
+  "execution": {
+    "MISMATCH": 1
+  },
+  "grounding_error_codes": {}
+}

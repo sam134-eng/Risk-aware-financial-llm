@@ -1,0 +1,102 @@
+{
+  "metrics": {
+    "3": {
+      "irs": 16,
+      "validator_status": {
+        "ABSTAIN": 1,
+        "ARITHMETIC_MISMATCH": 4,
+        "STRUCTURALLY_VALID": 11
+      },
+      "abstain": 1,
+      "variables": 32,
+      "grounding_pass": 15,
+      "grounding_errors": 0,
+      "unsourced": 0,
+      "claim_mismatch": 2,
+      "claim_mismatch_with_correct_equations": 2,
+      "rounded_claims": 2,
+      "computed_correct": 11,
+      "scored": 15,
+      "computed_correct_clean_gold": 9,
+      "scored_clean_gold": 10,
+      "answer_errors": [
+        "F_089"
+      ],
+      "classes": {
+        "ABSTAIN": 1,
+        "CLAIM_MISMATCH": 2,
+        "CORRECT": 9,
+        "ANSWER_ERROR": 1,
+        "GOLD_DISPUTED": 3
+      },
+      "scale_styles": {
+        "fraction": 7,
+        "percent (\u00d7100)": 8
+      },
+      "model": [
+        "gpt-6.2-sol"
+      ],
+      "prompt_sha256_distinct": 16
+    },
+    "8": {
+      "irs": 16,
+      "validator_status": {
+        "ABSTAIN": 1,
+        "ARITHMETIC_MISMATCH": 5,
+        "STRUCTURALLY_VALID": 10
+      },
+      "abstain": 1,
+      "variables": 36,
+      "grounding_pass": 15,
+      "grounding_errors": 0,
+      "unsourced": 0,
+      "claim_mismatch": 3,
+      "claim_mismatch_with_correct_equations": 3,
+      "rounded_claims": 2,
+      "computed_correct": 12,
+      "scored": 15,
+      "computed_correct_clean_gold": 10,
+      "scored_clean_gold": 10,
+      "answer_errors": [],
+      "classes": {
+        "ABSTAIN": 1,
+        "CLAIM_MISMATCH": 3,
+        "CORRECT": 9,
+        "GOLD_DISPUTED": 3
+      },
+      "scale_styles": {
+        "fraction": 11,
+        "percent (\u00d7100)": 4
+      },
+      "model": [
+        "gpt-6.2-sol"
+      ],
+      "prompt_sha256_distinct": 16
+    }
+  },
+  "differences": [
+    [
+      "F_089",
+      "ANSWER_ERROR",
+      "CLAIM_MISMATCH",
+      "72.00",
+      "0.263415"
+    ]
+  ],
+  "raw_sha256_16": {
+    "pilot_3shot.jsonl": "eca202a3f18a1889",
+    "pilot_8shot.jsonl": "ebae2763faafb0d7",
+    "pilot_inputs.jsonl": "8d7394a4ce2e768c",
+    "python_packages.txt": "a00acdc783f81453",
+    "python_version.txt": "a7575a0f59be8c73",
+    "validation_3shot.json": "0b486aea5a0d9b5a",
+    "validation_8shot.json": "540d8990b6c76331"
+  },
+  "tokens": {
+    "3-shot": null,
+    "8-shot": null,
+    "total": 103378
+  },
+  "requests": 32,
+  "cost_usd": 0.37
+}

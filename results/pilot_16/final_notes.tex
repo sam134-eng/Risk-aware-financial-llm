@@ -1,0 +1,15 @@
+\paragraph{E4. Autoformalization pilot: 3-shot vs 8-shot (16 cases).}
+\begin{itemize}
+\item No grounding errors in either configuration: every IR input is found in the cited cell, sentence or evidence line.
+\item Formalization accuracy (Python execution of the IR equations vs gold) is 12/16 (75\%) for 3-shot and
+  13/16 (81\%) for 8-shot (10/11 (91\%) vs
+  11/11 (100\%) excluding disputed gold); 8-shot fixes the F\_089 denominator (Table~\ref{tab:pilot}).
+\item Most validator arithmetic mismatches are errors in the formalized GPT-4o-mini answer that the IR exposes: the
+  equations are right but the claimed value is copied: F\_015 equations give \pounds 933.39 (= gold) vs the claimed \pounds 916.35,
+  F\_011 \$9{,}458.51 (= gold) vs \$9{,}469.51.
+\item Limitations: 16 cases, one model, one sample per configuration (API defaults, no seed); the difference is one case.
+\item Provenance: runner \texttt{experiments/autoformalization/autoformalize.py} (branch chaewon/finqa-autoformalization;
+  14 cases on 7522e82; F\_011 and F\_015 rerun on dc8ce86 after the evidence fix; prepared inputs of the 14 identical on both);
+  model gpt-6.2-sol (Responses API, strict JSON schema, API defaults); scoring \texttt{src/experiments/run\_ir\_grounding.py}
+  (Python IR execution, not Z3); OpenAI usage for the pilot including both reruns: 36 requests, 115,336 tokens, \$0.56 (project dashboard, November).
+\end{itemize}
