@@ -144,4 +144,29 @@ Symbolic Solvers for Faithful Logical Reasoning"
 Implement a cached baseline evaluator, run a small pilot, and measure numerical answer correctness before integrating Z3 verification and risk-aware deferral.
 
 ## Caveat: 
-Successful generation does not independently establish reference-answer correctness, annotation quality, or permission to redistribute the derived dataset.
+Successful generation does not independently establish reference-answer correctness, annotation quality, or permission to redistribute the derived dataset
+### 13-11-2026
+Programming Z3
+Nikolaj Bjørner, Leonardo de Moura, Lev Nachmanson, and Christoph Wintersteiger
+Microsoft Research (Reading this z3 documentation)
+Z3 is an efficient SMT solver with specialised algorithms for solving background theories like arithmetic, bit-vector, uninterpreted functions. 
+Section 3 -Theories
+Equality and Uninterpreted Functions- -
+EUF is basic ingredient for first order predicate logic. Before there are theories, there are constants, functions, predicate symbols and relations.
+Arithmatic-3.2(Important for Finance)
+from z3 import *
+
+revenue, cost, profit = Reals(
+    'revenue cost profit'
+)
+
+s = Solver()
+
+s.add(revenue == 1000)
+s.add(cost == 300)
+s.add(profit == revenue - cost)
+
+s.add(profit != 700)
+
+print(s.check()) 
+Answer will be unsatisfiable as profit must be 700.

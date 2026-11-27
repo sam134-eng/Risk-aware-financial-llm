@@ -1,0 +1,123 @@
+{
+  "file": "results/pilot_3shot.jsonl",
+  "summary": {
+    "PASS": 11,
+    "FAIL": 4,
+    "NOT_APPLICABLE": 1,
+    "UNKNOWN": 0
+  },
+  "results": [
+    {
+      "case_id": "F_011",
+      "verification": {
+        "status": "NOT_APPLICABLE",
+        "reason": "No equations in IR"
+      }
+    },
+    {
+      "case_id": "F_015",
+      "verification": {
+        "status": "FAIL",
+        "reason": "Z3 detected arithmetic mismatch beyond tolerance."
+      }
+    },
+    {
+      "case_id": "F_017",
+      "verification": {
+        "status": "PASS",
+        "reason": "Z3 verified mathematical consistency within tolerance."
+      }
+    },
+    {
+      "case_id": "F_027",
+      "verification": {
+        "status": "FAIL",
+        "reason": "Z3 detected arithmetic mismatch beyond tolerance."
+      }
+    },
+    {
+      "case_id": "F_033",
+      "verification": {
+        "status": "PASS",
+        "reason": "Z3 verified mathematical consistency within tolerance."
+      }
+    },
+    {
+      "case_id": "F_071",
+      "verification": {
+        "status": "PASS",
+        "reason": "Z3 verified mathematical consistency within tolerance."
+      }
+    },
+    {
+      "case_id": "F_089",
+      "verification": {
+        "status": "PASS",
+        "reason": "Z3 verified mathematical consistency within tolerance."
+      }
+    },
+    {
+      "case_id": "F_098",
+      "verification": {
+        "status": "PASS",
+        "reason": "Z3 verified mathematical consistency within tolerance."
+      }
+    },
+    {
+      "case_id": "F_106",
+      "verification": {
+        "status": "PASS",
+        "reason": "Z3 verified mathematical consistency within tolerance."
+      }
+    },
+    {
+      "case_id": "F_127",
+      "verification": {
+        "status": "FAIL",
+        "reason": "Z3 detected arithmetic mismatch beyond tolerance."
+      }
+    },
+    {
+      "case_id": "F_151",
+      "verification": {
+        "status": "PASS",
+        "reason": "Z3 verified mathematical consistency within tolerance."
+      }
+    },
+    {
+      "case_id": "F_183",
+      "verification": {
+        "status": "PASS",
+        "reason": "Z3 verified mathematical consistency within tolerance."
+      }
+    },
+    {
+      "case_id": "F_189",
+      "verification": {
+        "status": "PASS",
+        "reason": "Z3 verified mathematical consistency within tolerance."
+      }
+    },
+    {
+      "case_id": "F_278",
+      "verification": {
+        "status": "FAIL",
+        "reason": "Z3 detected arithmetic mismatch beyond tolerance."
+      }
+    },
+    {
+      "case_id": "F_332",
+      "verification": {
+        "status": "PASS",
+        "reason": "Z3 verified mathematical consistency within tolerance."
+      }
+    },
+    {
+      "case_id": "F_376",
+      "verification": {
+        "status": "PASS",
+        "reason": "Z3 verified mathematical consistency within tolerance."
+      }
+    }
+  ]
+}
