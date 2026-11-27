@@ -92,6 +92,21 @@ def verify_ir_entry(ir_obj, default_tol="0.01"):
             rhs_expr = parse_expression(rhs, z3_vars)
             solver.assert_and_track(z3_vars[lhs] == rhs_expr, f"constraint_{eq_id}")
 
+        # Check consistency before testing the claimed answer.
+        base_result = solver.check()
+
+        if base_result == unsat:
+            return {
+                "status": "FAIL",
+                "reason": "Inconsistent original constraints."
+            }
+
+        if base_result != sat:
+            return {
+                "status": "UNKNOWN",
+                "reason": "Could not establish constraint consistency."
+            }
+
         # 3. Check claimed answer against tolerance
         claimed_info = ir_obj.get("claimed_answer", {})
         target = claimed_info.get("target_variable")
