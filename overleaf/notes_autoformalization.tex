@@ -1,0 +1,48 @@
+\begingroup\sloppy
+\paragraph{E5. Autoformalization of the 500-case benchmark.}
+The evaluation converts the recorded model answers into mathematical intermediate representations (IRs) using the question and supporting financial evidence. The original answers are retained, and reference answers and programs are excluded from the generation inputs. The configuration uses \texttt{gpt-6.2-sol}, eight in-context examples and strict JSON-schema output through the Responses API. The prepared inputs, prompt, examples and schema are preserved across synchronous and Batch requests.
+
+Generation and local evaluation are complete for 36 of the 500 cases, with no recorded generation or evaluation errors. Table~\ref{tab:autof-500-progress} summarizes the checkpoint. The completed subset is intended to assess feasibility, not to estimate performance across the benchmark. These figures describe local schema, arithmetic and numerical traceability checks, not Z3 verdicts or reference-answer accuracy.
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Autoformalization progress and local validation outcomes (36 completed cases).}
+\label{tab:autof-500-progress}
+\begin{tabular}{lr}
+\hline
+Measure & Cases \\
+\hline
+Completed & 36/500 \\
+Pending & 464/500 \\
+Schema valid & 36/36 \\
+Executable equations & 34/36 \\
+Cases with numerically traceable inputs & 33/36 \\
+\hline
+\texttt{STRUCTURALLY\_VALID} & 25/36 \\
+\texttt{ARITHMETIC\_MISMATCH} & 8/36 \\
+\texttt{ABSTAIN} & 2/36 \\
+\texttt{INVALID} & 1/36 \\
+\hline
+\end{tabular}
+\end{table}
+
+The remaining 464 requests passed preflight checks for case identifiers, duplicate requests, prompt and schema consistency, and exclusion of completed cases. At the reported checkpoint, an initial batch of 25 cases had been submitted for validation, with 439 cases awaiting submission. Final scoring will apply the agreed reference adjudication policy while preserving the original model claims for IR verification. These partial results are reported separately from the earlier 16-case pilot, whose 36 requests included reruns.
+
+The archived evaluation checkpoint records SHA-256 hashes for the prepared inputs, runner, examples and schema in \texttt{experiment\_manifest.json}. Within that archive, the case-level results and summary are stored in \texttt{results/\allowbreak gpt-6.2-sol\_8shot/\allowbreak }. The generation snapshot has no recorded Git revision, and output-token limits were not explicitly set in the original configuration.
+
+\paragraph{E6. Z3 verification of IR constraint consistency.}
+The original IR verifier checked whether a target could differ from the claimed answer beyond a numerical tolerance. If the base constraints were inconsistent, this check was unsatisfiable regardless of the claim, which could produce a false \texttt{PASS}. The correction first checks satisfiability of the base constraints. In the merged implementation, inconsistent constraints return \texttt{FAIL}, and an inconclusive consistency check returns \texttt{UNKNOWN}; only satisfiable constraints proceed to claim verification.
+
+All ten regression tests passed, including the contradictory-equation case. The original and corrected implementations produced identical verdicts on the saved 3-shot and 8-shot pilot files (16 records per configuration). The 3-shot file contained 11 \texttt{PASS}, four \texttt{FAIL} and one \texttt{NOT\_APPLICABLE}; the 8-shot file contained ten \texttt{PASS}, five \texttt{FAIL} and one \texttt{NOT\_APPLICABLE}. These checks required no model inference. They used the saved verifier pilot inputs rather than a new benchmark run.
+
+The revised verifier distinguishes contradictory IRs (\texttt{INCONSISTENT\_IR}) from consistent IRs. When the relevant solver checks are conclusive, a consistent IR receives \texttt{PASS} when every feasible target value lies within the tolerance of the claim, \texttt{FAIL} when none does, and \texttt{UNDERDETERMINED} when feasible target values exist both inside and outside the tolerance. These classifications describe claim compatibility rather than exact target uniqueness.
+
+With Z3 version 4.15.4, all 14 synthetic regression cases matched their expected classifications: five \texttt{PASS}, three \texttt{FAIL}, three \texttt{INCONSISTENT\_IR}, two \texttt{UNDERDETERMINED}, and one \texttt{NOT\_APPLICABLE}. The cases covered contradictions, nonlinear constraints, unconstrained targets and auxiliary variables, division by zero, and tolerance boundaries. The \texttt{UNKNOWN} execution path was not exercised. In a paired comparison with the verifier from pull request \#2, all 32 saved pilot records retained their verdicts (16 per configuration), with no execution exceptions. This comparison used neither reference overrides nor exclusions.
+
+The JSONL aggregation matched the individual verdicts, counts and case identifiers. For a fixed-target mismatch, the unsatisfiable core included the claim, the defining equation and the input binding. The diagnostic core is computed using equality to the claim, whereas the verdict uses the tolerance interval. The adjudication loader returned six excluded cases and 24 reference overrides, with no overlap; a synthetic JSONL probe confirmed that an exclusion and a reference override were applied. This probe verifies the mechanism, not the correctness of every adjudicated reference. Verification of original model claims and evaluation against adjudicated references are distinct and should be reported separately.
+
+For nonunique targets, a model value returned with \texttt{FAIL} need not be the unique expected value. For example, $y=y^2$ admits $y=0$ and $y=1$, neither of which supports a claim of 3. The verifier correctly returned \texttt{FAIL} but reported 0 as the expected value. Such a diagnostic is better interpreted as an example of a feasible value unless uniqueness has been established.
+
+The original consistency correction is documented in pull request \#2 (commit \texttt{c7c0570}). The subsequent evaluation used commit \texttt{cfe5051}, including \texttt{scripts/\allowbreak verify\_ir\_with\_z3 (Updated).py}, the baseline verifier, both saved pilot inputs and the gold-adjudication CSV. The regression notebook (\texttt{results/\allowbreak z3\_regression\_evaluation.ipynb}) and its JSON report (\texttt{results/\allowbreak z3\_regression\_results.json}) record the input hashes and solver version. No full-benchmark Z3 results are reported here.
+\par\endgroup
