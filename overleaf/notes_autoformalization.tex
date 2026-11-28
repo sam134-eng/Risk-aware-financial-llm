@@ -1,0 +1,42 @@
+\begingroup\sloppy
+\paragraph{E5. Autoformalization of the 500-case benchmark.}
+The evaluation converts the recorded model answers into mathematical intermediate representations (IRs) using the question and supporting financial evidence. The original answers are retained, and reference answers and programs are excluded from the generation inputs. The configuration uses \texttt{gpt-6.2-sol}, eight few-shot examples and strict JSON-schema output through the Responses API. The prepared inputs, prompt, examples and schema are preserved across synchronous and Batch requests.
+
+Generation and local evaluation are complete for 36 of the 500 cases, with no recorded generation or evaluation errors. Table~\ref{tab:autof-500-progress} summarizes the checkpoint. The completed cases are feasibility cases, not a representative sample of the benchmark. These figures describe local schema, arithmetic and numerical traceability checks, not Z3 verdicts or reference-answer accuracy.
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Autoformalization progress and local validation outcomes (36 completed cases).}
+\label{tab:autof-500-progress}
+\begin{tabular}{lr}
+\hline
+Measure & Cases \\
+\hline
+Completed & 36/500 \\
+Pending & 464/500 \\
+Schema valid & 36/36 \\
+Executable equations & 34/36 \\
+Numerically traceable inputs & 33/36 \\
+\hline
+\texttt{STRUCTURALLY\_VALID} & 25/36 \\
+\texttt{ARITHMETIC\_MISMATCH} & 8/36 \\
+\texttt{ABSTAIN} & 2/36 \\
+\texttt{INVALID} & 1/36 \\
+\hline
+\end{tabular}
+\end{table}
+
+The remaining 464 requests passed preflight checks for case identifiers, duplicate requests, prompt and schema consistency, and exclusion of completed cases. A 25-case validation batch is planned before submitting the other 439 cases. No Batch job was created during the first submission attempt. Final scoring will use the agreed reference adjudication policy. These partial results are reported separately from the earlier 16-case pilot, whose 36 requests included reruns.
+
+Reproducibility: the evaluation snapshot records SHA-256 hashes for the prepared inputs, runner, examples and schema in \texttt{experiment\_manifest.json}. The case-level results and summary are stored in \texttt{results/\allowbreak gpt-6.2-sol\_8shot/\allowbreak }. The generation snapshot has no recorded Git revision, and output-token limits were not explicitly set in the original configuration.
+
+\paragraph{E6. Z3 verification of IR constraint consistency.}
+The original IR verifier checked whether a target could differ from the claimed answer beyond a numerical tolerance. If the base constraints were inconsistent, this check was unsatisfiable regardless of the claim, which could produce a false \texttt{PASS}. The correction first checks satisfiability of the base constraints. In the merged implementation, inconsistent constraints return \texttt{FAIL}, and an inconclusive consistency check returns \texttt{UNKNOWN}; only satisfiable constraints proceed to claim verification.
+
+All ten regression tests passed, including the contradictory-equation case. Comparing the original and corrected verifier on the saved 3-shot and 8-shot pilot files in \texttt{results/\allowbreak } showed no change across 32 records (16 per configuration). The 3-shot file contained 11 \texttt{PASS}, four \texttt{FAIL} and one \texttt{NOT\_APPLICABLE}; the 8-shot file contained ten \texttt{PASS}, five \texttt{FAIL} and one \texttt{NOT\_APPLICABLE}. These checks required no model inference. They used the saved verifier pilot inputs rather than a new benchmark run.
+
+The proposed taxonomy distinguishes inconsistent formalizations (\texttt{INCONSISTENT\_IR}) and underdetermined targets (\texttt{UNDERDETERMINED}) from numerical disagreement with a consistent IR (\texttt{FAIL}). Additional regression cases cover contradictory equations, nonunique target values, nonlinear constraints and uniquely determined targets with unconstrained auxiliary variables. An integration test checks aggregation of the expanded status set. The revised taxonomy has not yet been validated against the updated verifier; these are proposed test expectations, not measured results.
+
+Reproducibility: \texttt{scripts/\allowbreak verify\_ir\_with\_z3.py} and \texttt{tests/\allowbreak test\_z3\_ir\_consistency.py}; pull request \#2, merged at commit \texttt{c7c0570}. The follow-up tests are in \texttt{test\_z3\_ir\_taxonomy.py}. No full-benchmark Z3 results are reported here.
+\par\endgroup
