@@ -1,0 +1,972 @@
+{
+  "repository_commit": "cfe50516e291715038ffc7589844e4321e513273",
+  "input_git_blobs": {
+    "scripts/verify_ir_with_z3 (Updated).py": "8015977361983e450af5e889380f20cdf41be417",
+    "scripts/verify_ir_with_z3.py": "7cae16243af87ca952248172b62bfb879555d4fb",
+    "pilot_3shot.jsonl": "81bf25830d933bc629ec2211fcd839f90034ce42",
+    "pilot_8shot.jsonl": "fd5e633c3f6633c464250aafdef5d394fb8a3728",
+    "results/gold_audit/gold_adjudication_30.csv": "b321ff4dc9e77e98c1614cc0046bea8afbdb7f6b"
+  },
+  "z3_version": "4.15.4",
+  "regression": [
+    {
+      "case": "contradictory_matching_claim",
+      "expected": "INCONSISTENT_IR",
+      "actual": "INCONSISTENT_IR",
+      "match": true,
+      "verification": {
+        "status": "INCONSISTENT_IR",
+        "reason": "Constraints contradict.",
+        "target_variable": "y",
+        "claimed_value": 15,
+        "tolerance": 0.01
+      }
+    },
+    {
+      "case": "contradictory_nonmatching_claim",
+      "expected": "INCONSISTENT_IR",
+      "actual": "INCONSISTENT_IR",
+      "match": true,
+      "verification": {
+        "status": "INCONSISTENT_IR",
+        "reason": "Constraints contradict.",
+        "target_variable": "y",
+        "claimed_value": 100,
+        "tolerance": 0.01
+      }
+    },
+    {
+      "case": "unconstrained_target",
+      "expected": "UNDERDETERMINED",
+      "actual": "UNDERDETERMINED",
+      "match": true,
+      "verification": {
+        "status": "UNDERDETERMINED",
+        "reason": "Claim consistent with the IR but not forced.",
+        "z3_example_value": 0.0,
+        "target_variable": "y",
+        "claimed_value": 15,
+        "tolerance": 0.01
+      }
+    },
+    {
+      "case": "nonlinear_multiple_roots_claim_possible",
+      "expected": "UNDERDETERMINED",
+      "actual": "UNDERDETERMINED",
+      "match": true,
+      "verification": {
+        "status": "UNDERDETERMINED",
+        "reason": "Claim consistent with the IR but not forced.",
+        "z3_example_value": 0.0,
+        "target_variable": "y",
+        "claimed_value": 1,
+        "tolerance": 0.01
+      }
+    },
+    {
+      "case": "nonlinear_multiple_roots_claim_impossible",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "match": true,
+      "verification": {
+        "status": "FAIL",
+        "reason": "Z3 mismatch: equations yield 0.0, but claimed 3.",
+        "z3_expected_value": 0.0,
+        "target_variable": "y",
+        "claimed_value": 3,
+        "tolerance": 0.01,
+        "unsat_core": [
+          "claimed_answer",
+          "eq:1::y"
+        ]
+      }
+    },
+    {
+      "case": "free_auxiliary_fixed_target_match",
+      "expected": "PASS",
+      "actual": "PASS",
+      "match": true,
+      "verification": {
+        "status": "PASS",
+        "reason": "Z3 proved the claim within tolerance.",
+        "target_variable": "y",
+        "claimed_value": 15,
+        "tolerance": 0.01
+      }
+    },
+    {
+      "case": "free_auxiliary_fixed_target_mismatch",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "match": true,
+      "verification": {
+        "status": "FAIL",
+        "reason": "Z3 mismatch: equations yield 15.0, but claimed 20.",
+        "z3_expected_value": 15.0,
+        "target_variable": "y",
+        "claimed_value": 20,
+        "tolerance": 0.01,
+        "unsat_core": [
+          "claimed_answer",
+          "eq:2::y",
+          "var:x"
+        ]
+      }
+    },
+    {
+      "case": "unique_nonlinear_target",
+      "expected": "PASS",
+      "actual": "PASS",
+      "match": true,
+      "verification": {
+        "status": "PASS",
+        "reason": "Z3 proved the claim within tolerance.",
+        "target_variable": "y",
+        "claimed_value": 0,
+        "tolerance": 0.01
+      }
+    },
+    {
+      "case": "division_by_zero",
+      "expected": "INCONSISTENT_IR",
+      "actual": "INCONSISTENT_IR",
+      "match": true,
+      "verification": {
+        "status": "INCONSISTENT_IR",
+        "reason": "Constraints contradict.",
+        "target_variable": "y",
+        "claimed_value": 0,
+        "tolerance": 0.01
+      }
+    },
+    {
+      "case": "tolerance_boundary",
+      "expected": "PASS",
+      "actual": "PASS",
+      "match": true,
+      "verification": {
+        "status": "PASS",
+        "reason": "Z3 proved the claim within tolerance.",
+        "target_variable": "y",
+        "claimed_value": 10,
+        "tolerance": 0.01
+      }
+    },
+    {
+      "case": "outside_tolerance",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "match": true,
+      "verification": {
+        "status": "FAIL",
+        "reason": "Z3 mismatch: equations yield 10.011, but claimed 10.",
+        "z3_expected_value": 10.011,
+        "target_variable": "y",
+        "claimed_value": 10,
+        "tolerance": 0.01,
+        "unsat_core": [
+          "claimed_answer",
+          "eq:1::y"
+        ]
+      }
+    },
+    {
+      "case": "negative_tolerance",
+      "expected": "NOT_APPLICABLE",
+      "actual": "NOT_APPLICABLE",
+      "match": true,
+      "verification": {
+        "status": "NOT_APPLICABLE",
+        "reason": "Parse/validation error: Tolerance cannot be negative: -0.01"
+      }
+    },
+    {
+      "case": "lower_tolerance_boundary",
+      "expected": "PASS",
+      "actual": "PASS",
+      "match": true,
+      "verification": {
+        "status": "PASS",
+        "reason": "Z3 proved the claim within tolerance.",
+        "target_variable": "y",
+        "claimed_value": 10,
+        "tolerance": 0.01
+      }
+    },
+    {
+      "case": "nonzero_divisor",
+      "expected": "PASS",
+      "actual": "PASS",
+      "match": true,
+      "verification": {
+        "status": "PASS",
+        "reason": "Z3 proved the claim within tolerance.",
+        "target_variable": "y",
+        "claimed_value": 5,
+        "tolerance": 0.01
+      }
+    }
+  ],
+  "unsat_core_feedback": {
+    "claim_in_core": true,
+    "defining_equation_in_core": true,
+    "input_binding_in_core": true,
+    "core": [
+      "claimed_answer",
+      "eq:2::y",
+      "var:x"
+    ],
+    "passed": true
+  },
+  "pilot_comparison": {
+    "3shot": [
+      {
+        "case_id": "F_011",
+        "old": "NOT_APPLICABLE",
+        "new": "NOT_APPLICABLE",
+        "updated_verdict": {
+          "status": "NOT_APPLICABLE",
+          "reason": "Parse/validation error: No equations in IR"
+        }
+      },
+      {
+        "case_id": "F_015",
+        "old": "FAIL",
+        "new": "FAIL",
+        "updated_verdict": {
+          "status": "FAIL",
+          "reason": "Z3 mismatch: equations yield 933.393179, but claimed 916.35.",
+          "z3_expected_value": 933.393179,
+          "target_variable": "monthly_repayment",
+          "claimed_value": 916.35,
+          "tolerance": 0.01,
+          "unsat_core": [
+            "claimed_answer",
+            "eq:1:eq_1:monthly_interest_rate",
+            "eq:2:eq_2:compounding_factor_36_months",
+            "eq:3:eq_3:monthly_repayment",
+            "guard:3:eq_3:monthly_repayment:0",
+            "var:initial_loan_principal",
+            "var:nominal_annual_interest_rate_pct"
+          ]
+        }
+      },
+      {
+        "case_id": "F_017",
+        "old": "PASS",
+        "new": "PASS",
+        "updated_verdict": {
+          "status": "PASS",
+          "reason": "Z3 proved the claim within tolerance.",
+          "target_variable": "devon_debt_maturity_share_2018_and_thereafter",
+          "claimed_value": 0.5766,
+          "tolerance": 5e-05
+        }
+      },
+      {
+        "case_id": "F_027",
+        "old": "FAIL",
+        "new": "FAIL",
+        "updated_verdict": {
+          "status": "FAIL",
+          "reason": "Z3 mismatch: equations yield 251599.67, but claimed 251375.",
+          "z3_expected_value": 251599.67,
+          "target_variable": "unearned_incentive_shares_grant_date_fair_value_fy2017_end_thousand_usd",
+          "claimed_value": 251375,
+          "tolerance": 0.5,
+          "unsat_core": [
+            "claimed_answer",
+            "eq:1:eq_1:unearned_incentive_shares_grant_date_fair_value_fy2017_end_thousand_usd",
+            "var:average_grant_date_fair_value_per_unearned_incentive_share_fy2017_end",
+            "var:unearned_incentive_shares_outstanding_fy2017_end"
+          ]
+        }
+      },
+      {
+        "case_id": "F_033",
+        "old": "PASS",
+        "new": "PASS",
+        "updated_verdict": {
+          "status": "PASS",
+          "reason": "Z3 proved the claim within tolerance.",
+          "target_variable": "employee_shares_purchased_percent_change_2010_to_2011",
+          "claimed_value": -18.5,
+          "tolerance": 0.05
+        }
+      },
+      {
+        "case_id": "F_071",
+        "old": "PASS",
+        "new": "PASS",
+        "updated_verdict": {
+          "status": "PASS",
+          "reason": "Z3 proved the claim within tolerance.",
+          "target_variable": "masco_cumulative_return_pct_2007_to_2012",
+          "claimed_value": -7.51,
+          "tolerance": 0.005
+        }
+      },
+      {
+        "case_id": "F_089",
+        "old": "PASS",
+        "new": "PASS",
+        "updated_verdict": {
+          "status": "PASS",
+          "reason": "Z3 proved the claim within tolerance.",
+          "target_variable": "amortization_expense_2019_as_percent_of_2017",
+          "claimed_value": 72,
+          "tolerance": 0.01
+        }
+      },
+      {
+        "case_id": "F_098",
+        "old": "PASS",
+        "new": "PASS",
+        "updated_verdict": {
+          "status": "PASS",
+          "reason": "Z3 proved the claim within tolerance.",
+          "target_variable": "international_net_sales_2017_million_usd",
+          "claimed_value": 792.5,
+          "tolerance": 0.05
+        }
+      },
+      {
+        "case_id": "F_106",
+        "old": "PASS",
+        "new": "PASS",
+        "updated_verdict": {
+          "status": "PASS",
+          "reason": "Z3 proved the claim within tolerance.",
+          "target_variable": "international_slot_and_route_authorities_decline_fraction_2009_to_2010",
+          "claimed_value": 0.038,
+          "tolerance": 0.0005
+        }
+      },
+      {
+        "case_id": "F_127",
+        "old": "FAIL",
+        "new": "FAIL",
+        "updated_verdict": {
+          "status": "FAIL",
+          "reason": "Z3 mismatch: equations yield 20.686573, but claimed 20.68.",
+          "z3_expected_value": 20.686573,
+          "target_variable": "operating_lease_commitments_due_fiscal_2020_percent",
+          "claimed_value": 20.68,
+          "tolerance": 0.005,
+          "unsat_core": [
+            "claimed_answer",
+            "eq:1:eq_1:operating_lease_commitments_due_fiscal_2020_percent",
+            "guard:1:eq_1:operating_lease_commitments_due_fiscal_2020_percent:0",
+            "var:operating_lease_commitments_due_fiscal_2020",
+            "var:total_noncancelable_future_operating_lease_commitments"
+          ]
+        }
+      },
+      {
+        "case_id": "F_151",
+        "old": "PASS",
+        "new": "PASS",
+        "updated_verdict": {
+          "status": "PASS",
+          "reason": "Z3 proved the claim within tolerance.",
+          "target_variable": "sp500_ending_investment_value_2011",
+          "claimed_value": 138290,
+          "tolerance": 0.01
+        }
+      },
+      {
+        "case_id": "F_183",
+        "old": "PASS",
+        "new": "PASS",
+        "updated_verdict": {
+          "status": "PASS",
+          "reason": "Z3 proved the claim within tolerance.",
+          "target_variable": "cash_dividends_paid_per_common_share_pct_change_2006_to_2007",
+          "claimed_value": 2.78,
+          "tolerance": 0.005
+        }
+      },
+      {
+        "case_id": "F_189",
+        "old": "PASS",
+        "new": "PASS",
+        "updated_verdict": {
+          "status": "PASS",
+          "reason": "Z3 proved the claim within tolerance.",
+          "target_variable": "euro_earnings_impact_pct_change_2011_to_2012",
+          "claimed_value": 2.65,
+          "tolerance": 0.005
+        }
+      },
+      {
+        "case_id": "F_278",
+        "old": "FAIL",
+        "new": "FAIL",
+        "updated_verdict": {
+          "status": "FAIL",
+          "reason": "Z3 mismatch: equations yield 0.180312, but claimed 0.18.",
+          "z3_expected_value": 0.180312,
+          "target_variable": "consumer_related_share_of_corporate_lending_exposure_2013",
+          "claimed_value": 0.18,
+          "tolerance": 5e-05,
+          "unsat_core": [
+            "claimed_answer",
+            "eq:1:eq_1:consumer_related_exposure_2013_billion_usd",
+            "eq:2:eq_2:consumer_related_share_of_corporate_lending_exposure_2013",
+            "guard:2:eq_2:consumer_related_share_of_corporate_lending_exposure_2013:0",
+            "var:consumer_discretionary_exposure_2013",
+            "var:consumer_staples_exposure_2013",
+            "var:total_corporate_lending_exposure_2013"
+          ]
+        }
+      },
+      {
+        "case_id": "F_332",
+        "old": "PASS",
+        "new": "PASS",
+        "updated_verdict": {
+          "status": "PASS",
+          "reason": "Z3 proved the claim within tolerance.",
+          "target_variable": "royalty_fees_in_cogs_pct_change_2011_to_2012",
+          "claimed_value": 10.71,
+          "tolerance": 0.005
+        }
+      },
+      {
+        "case_id": "F_376",
+        "old": "PASS",
+        "new": "PASS",
+        "updated_verdict": {
+          "status": "PASS",
+          "reason": "Z3 proved the claim within tolerance.",
+          "target_variable": "consulting_and_professional_fees_percent_change_2006_to_2007",
+          "claimed_value": -88.64,
+          "tolerance": 0.005
+        }
+      }
+    ],
+    "8shot": [
+      {
+        "case_id": "F_011",
+        "old": "NOT_APPLICABLE",
+        "new": "NOT_APPLICABLE",
+        "updated_verdict": {
+          "status": "NOT_APPLICABLE",
+          "reason": "Parse/validation error: No equations in IR"
+        }
+      },
+      {
+        "case_id": "F_015",
+        "old": "FAIL",
+        "new": "FAIL",
+        "updated_verdict": {
+          "status": "FAIL",
+          "reason": "Z3 mismatch: equations yield 933.393179, but claimed 916.35.",
+          "z3_expected_value": 933.393179,
+          "target_variable": "monthly_repayment_gbp",
+          "claimed_value": 916.35,
+          "tolerance": 0.01,
+          "unsat_core": [
+            "claimed_answer",
+            "eq:1:eq_1:monthly_interest_rate",
+            "eq:2:eq_2:annual_compounding_factor",
+            "eq:3:eq_3:loan_term_compounding_factor",
+            "eq:4:eq_4:monthly_repayment_gbp",
+            "guard:4:eq_4:monthly_repayment_gbp:0",
+            "var:initial_loan_principal",
+            "var:monthly_payment_count",
+            "var:nominal_annual_interest_rate_percent"
+          ]
+        }
+      },
+      {
+        "case_id": "F_017",
+        "old": "PASS",
+        "new": "PASS",
+        "updated_verdict": {
+          "status": "PASS",
+          "reason": "Z3 proved the claim within tolerance.",
+          "target_variable": "devon_debt_maturity_share_2018_and_thereafter",
+          "claimed_value": 0.5766,
+          "tolerance": 5e-05
+        }
+      },
+      {
+        "case_id": "F_027",
+        "old": "FAIL",
+        "new": "FAIL",
+        "updated_verdict": {
+          "status": "FAIL",
+          "reason": "Z3 mismatch: equations yield 251599.67, but claimed 251375.",
+          "z3_expected_value": 251599.67,
+          "target_variable": "unearned_incentive_share_value_fy2017_end_thousand_usd",
+          "claimed_value": 251375,
+          "tolerance": 0.5,
+          "unsat_core": [
+            "claimed_answer",
+            "eq:1:eq_1:unearned_incentive_share_value_fy2017_end_thousand_usd",
+            "var:average_grant_date_fair_value_per_share_fy2017_end",
+            "var:unearned_incentive_shares_outstanding_fy2017_end"
+          ]
+        }
+      },
+      {
+        "case_id": "F_033",
+        "old": "PASS",
+        "new": "PASS",
+        "updated_verdict": {
+          "status": "PASS",
+          "reason": "Z3 proved the claim within tolerance.",
+          "target_variable": "employee_share_purchase_percent_change_2010_to_2011",
+          "claimed_value": -18.5,
+          "tolerance": 0.05
+        }
+      },
+      {
+        "case_id": "F_071",
+        "old": "PASS",
+        "new": "PASS",
+        "updated_verdict": {
+          "status": "PASS",
+          "reason": "Z3 proved the claim within tolerance.",
+          "target_variable": "masco_cumulative_return_percent_2007_to_2012",
+          "claimed_value": -7.51,
+          "tolerance": 0.005
+        }
+      },
+      {
+        "case_id": "F_089",
+        "old": "FAIL",
+        "new": "FAIL",
+        "updated_verdict": {
+          "status": "FAIL",
+          "reason": "Z3 mismatch: equations yield 0.263415, but claimed 0.72.",
+          "z3_expected_value": 0.263415,
+          "target_variable": "share_of_estimated_amortization_due_in_2019_as_of_2017",
+          "claimed_value": 0.72,
+          "tolerance": 0.005,
+          "unsat_core": [
+            "claimed_answer",
+            "eq:1:eq_1:total_estimated_amortization_2018_to_2022",
+            "eq:2:eq_2:share_of_estimated_amortization_due_in_2019_as_of_2017",
+            "guard:2:eq_2:share_of_estimated_amortization_due_in_2019_as_of_2017:0",
+            "var:estimated_amortization_2018",
+            "var:estimated_amortization_2019",
+            "var:estimated_amortization_2020",
+            "var:estimated_amortization_2021",
+            "var:estimated_amortization_2022"
+          ]
+        }
+      },
+      {
+        "case_id": "F_098",
+        "old": "PASS",
+        "new": "PASS",
+        "updated_verdict": {
+          "status": "PASS",
+          "reason": "Z3 proved the claim within tolerance.",
+          "target_variable": "international_net_sales_2017_million_usd",
+          "claimed_value": 792.5,
+          "tolerance": 0.05
+        }
+      },
+      {
+        "case_id": "F_106",
+        "old": "PASS",
+        "new": "PASS",
+        "updated_verdict": {
+          "status": "PASS",
+          "reason": "Z3 proved the claim within tolerance.",
+          "target_variable": "decline_fraction_2009_to_2010",
+          "claimed_value": 0.038,
+          "tolerance": 0.0005
+        }
+      },
+      {
+        "case_id": "F_127",
+        "old": "FAIL",
+        "new": "FAIL",
+        "updated_verdict": {
+          "status": "FAIL",
+          "reason": "Z3 mismatch: equations yield 0.206866, but claimed 0.2068.",
+          "z3_expected_value": 0.206866,
+          "target_variable": "operating_lease_commitment_share_due_fiscal_2020",
+          "claimed_value": 0.2068,
+          "tolerance": 5e-05,
+          "unsat_core": [
+            "claimed_answer",
+            "eq:1:eq_1:operating_lease_commitment_share_due_fiscal_2020",
+            "guard:1:eq_1:operating_lease_commitment_share_due_fiscal_2020:0",
+            "var:noncancelable_operating_lease_commitments_due_fiscal_2020",
+            "var:total_noncancelable_future_operating_lease_commitments"
+          ]
+        }
+      },
+      {
+        "case_id": "F_151",
+        "old": "PASS",
+        "new": "PASS",
+        "updated_verdict": {
+          "status": "PASS",
+          "reason": "Z3 proved the claim within tolerance.",
+          "target_variable": "ending_investment_value_2011",
+          "claimed_value": 138290,
+          "tolerance": 0.01
+        }
+      },
+      {
+        "case_id": "F_183",
+        "old": "PASS",
+        "new": "PASS",
+        "updated_verdict": {
+          "status": "PASS",
+          "reason": "Z3 proved the claim within tolerance.",
+          "target_variable": "dividend_per_common_share_change_2006_to_2007_percent",
+          "claimed_value": 2.78,
+          "tolerance": 0.005
+        }
+      },
+      {
+        "case_id": "F_189",
+        "old": "PASS",
+        "new": "PASS",
+        "updated_verdict": {
+          "status": "PASS",
+          "reason": "Z3 proved the claim within tolerance.",
+          "target_variable": "euro_earnings_impact_change_2011_to_2012",
+          "claimed_value": 0.0265,
+          "tolerance": 5e-05
+        }
+      },
+      {
+        "case_id": "F_278",
+        "old": "FAIL",
+        "new": "FAIL",
+        "updated_verdict": {
+          "status": "FAIL",
+          "reason": "Z3 mismatch: equations yield 0.180312, but claimed 0.18.",
+          "z3_expected_value": 0.180312,
+          "target_variable": "consumer_related_share_of_corporate_lending_exposure_2013",
+          "claimed_value": 0.18,
+          "tolerance": 5e-05,
+          "unsat_core": [
+            "claimed_answer",
+            "eq:1:eq_1:consumer_related_exposure_2013_billion",
+            "eq:2:eq_2:consumer_related_share_of_corporate_lending_exposure_2013",
+            "guard:2:eq_2:consumer_related_share_of_corporate_lending_exposure_2013:0",
+            "var:consumer_discretionary_exposure_2013",
+            "var:consumer_staples_exposure_2013",
+            "var:total_corporate_lending_exposure_2013"
+          ]
+        }
+      },
+      {
+        "case_id": "F_332",
+        "old": "PASS",
+        "new": "PASS",
+        "updated_verdict": {
+          "status": "PASS",
+          "reason": "Z3 proved the claim within tolerance.",
+          "target_variable": "cogs_royalty_fee_change_rate_2011_to_2012",
+          "claimed_value": 0.1071,
+          "tolerance": 5e-05
+        }
+      },
+      {
+        "case_id": "F_376",
+        "old": "PASS",
+        "new": "PASS",
+        "updated_verdict": {
+          "status": "PASS",
+          "reason": "Z3 proved the claim within tolerance.",
+          "target_variable": "consulting_and_professional_fees_percent_change_2006_to_2007",
+          "claimed_value": -88.64,
+          "tolerance": 0.005
+        }
+      }
+    ]
+  },
+  "aggregation": {
+    "matches_individual": true,
+    "status_counts_match": true,
+    "status_ids_match": true,
+    "record_count_matches": true,
+    "total_count_matches": true,
+    "output": {
+      "file": "synthetic_cases.jsonl",
+      "summary": {
+        "PASS": 5,
+        "FAIL": 3,
+        "UNDERDETERMINED": 2,
+        "INCONSISTENT_IR": 3,
+        "NOT_APPLICABLE": 1,
+        "UNKNOWN": 0
+      },
+      "case_ids": {
+        "PASS": [
+          "free_auxiliary_fixed_target_match",
+          "unique_nonlinear_target",
+          "tolerance_boundary",
+          "lower_tolerance_boundary",
+          "nonzero_divisor"
+        ],
+        "FAIL": [
+          "nonlinear_multiple_roots_claim_impossible",
+          "free_auxiliary_fixed_target_mismatch",
+          "outside_tolerance"
+        ],
+        "UNDERDETERMINED": [
+          "unconstrained_target",
+          "nonlinear_multiple_roots_claim_possible"
+        ],
+        "INCONSISTENT_IR": [
+          "contradictory_matching_claim",
+          "contradictory_nonmatching_claim",
+          "division_by_zero"
+        ],
+        "NOT_APPLICABLE": [
+          "negative_tolerance"
+        ],
+        "UNKNOWN": []
+      },
+      "config": {
+        "use_adjudicated_refs": false,
+        "exclude_adjudicated": false,
+        "n_excluded_seen": 0
+      },
+      "results": [
+        {
+          "case_id": "contradictory_matching_claim",
+          "verification": {
+            "status": "INCONSISTENT_IR",
+            "reason": "Constraints contradict.",
+            "target_variable": "y",
+            "claimed_value": 15,
+            "tolerance": 0.01
+          }
+        },
+        {
+          "case_id": "contradictory_nonmatching_claim",
+          "verification": {
+            "status": "INCONSISTENT_IR",
+            "reason": "Constraints contradict.",
+            "target_variable": "y",
+            "claimed_value": 100,
+            "tolerance": 0.01
+          }
+        },
+        {
+          "case_id": "unconstrained_target",
+          "verification": {
+            "status": "UNDERDETERMINED",
+            "reason": "Claim consistent with the IR but not forced.",
+            "z3_example_value": 0.0,
+            "target_variable": "y",
+            "claimed_value": 15,
+            "tolerance": 0.01
+          }
+        },
+        {
+          "case_id": "nonlinear_multiple_roots_claim_possible",
+          "verification": {
+            "status": "UNDERDETERMINED",
+            "reason": "Claim consistent with the IR but not forced.",
+            "z3_example_value": 0.0,
+            "target_variable": "y",
+            "claimed_value": 1,
+            "tolerance": 0.01
+          }
+        },
+        {
+          "case_id": "nonlinear_multiple_roots_claim_impossible",
+          "verification": {
+            "status": "FAIL",
+            "reason": "Z3 mismatch: equations yield 0.0, but claimed 3.",
+            "z3_expected_value": 0.0,
+            "target_variable": "y",
+            "claimed_value": 3,
+            "tolerance": 0.01,
+            "unsat_core": [
+              "claimed_answer",
+              "eq:1::y"
+            ]
+          }
+        },
+        {
+          "case_id": "free_auxiliary_fixed_target_match",
+          "verification": {
+            "status": "PASS",
+            "reason": "Z3 proved the claim within tolerance.",
+            "target_variable": "y",
+            "claimed_value": 15,
+            "tolerance": 0.01
+          }
+        },
+        {
+          "case_id": "free_auxiliary_fixed_target_mismatch",
+          "verification": {
+            "status": "FAIL",
+            "reason": "Z3 mismatch: equations yield 15.0, but claimed 20.",
+            "z3_expected_value": 15.0,
+            "target_variable": "y",
+            "claimed_value": 20,
+            "tolerance": 0.01,
+            "unsat_core": [
+              "claimed_answer",
+              "eq:2::y",
+              "var:x"
+            ]
+          }
+        },
+        {
+          "case_id": "unique_nonlinear_target",
+          "verification": {
+            "status": "PASS",
+            "reason": "Z3 proved the claim within tolerance.",
+            "target_variable": "y",
+            "claimed_value": 0,
+            "tolerance": 0.01
+          }
+        },
+        {
+          "case_id": "division_by_zero",
+          "verification": {
+            "status": "INCONSISTENT_IR",
+            "reason": "Constraints contradict.",
+            "target_variable": "y",
+            "claimed_value": 0,
+            "tolerance": 0.01
+          }
+        },
+        {
+          "case_id": "tolerance_boundary",
+          "verification": {
+            "status": "PASS",
+            "reason": "Z3 proved the claim within tolerance.",
+            "target_variable": "y",
+            "claimed_value": 10,
+            "tolerance": 0.01
+          }
+        },
+        {
+          "case_id": "outside_tolerance",
+          "verification": {
+            "status": "FAIL",
+            "reason": "Z3 mismatch: equations yield 10.011, but claimed 10.",
+            "z3_expected_value": 10.011,
+            "target_variable": "y",
+            "claimed_value": 10,
+            "tolerance": 0.01,
+            "unsat_core": [
+              "claimed_answer",
+              "eq:1::y"
+            ]
+          }
+        },
+        {
+          "case_id": "negative_tolerance",
+          "verification": {
+            "status": "NOT_APPLICABLE",
+            "reason": "Parse/validation error: Tolerance cannot be negative: -0.01"
+          }
+        },
+        {
+          "case_id": "lower_tolerance_boundary",
+          "verification": {
+            "status": "PASS",
+            "reason": "Z3 proved the claim within tolerance.",
+            "target_variable": "y",
+            "claimed_value": 10,
+            "tolerance": 0.01
+          }
+        },
+        {
+          "case_id": "nonzero_divisor",
+          "verification": {
+            "status": "PASS",
+            "reason": "Z3 proved the claim within tolerance.",
+            "target_variable": "y",
+            "claimed_value": 5,
+            "tolerance": 0.01
+          }
+        }
+      ]
+    }
+  },
+  "adjudication": {
+    "excluded_count": 6,
+    "reference_override_count": 24,
+    "counts_match_policy": true,
+    "disjoint_ids": true,
+    "original_claim": {
+      "status": "FAIL",
+      "reason": "Z3 mismatch: equations yield 15.0, but claimed 20.",
+      "z3_expected_value": 15.0,
+      "target_variable": "y",
+      "claimed_value": 20,
+      "tolerance": 0.01,
+      "unsat_core": [
+        "claimed_answer",
+        "eq:1::y",
+        "var:x"
+      ]
+    },
+    "reference_override": {
+      "status": "PASS",
+      "reason": "Z3 proved the claim within tolerance.",
+      "target_variable": "y",
+      "claimed_value": 15,
+      "tolerance": 0.01
+    },
+    "claim_override_behaves_as_expected": true,
+    "exclusion_applied": true,
+    "pipeline_override_applied": true,
+    "pipeline_output": {
+      "file": "adjudication_probe.jsonl",
+      "summary": {
+        "PASS": 1,
+        "FAIL": 0,
+        "UNDERDETERMINED": 0,
+        "INCONSISTENT_IR": 0,
+        "NOT_APPLICABLE": 0,
+        "UNKNOWN": 0
+      },
+      "case_ids": {
+        "PASS": [
+          "F_021"
+        ],
+        "FAIL": [],
+        "UNDERDETERMINED": [],
+        "INCONSISTENT_IR": [],
+        "NOT_APPLICABLE": [],
+        "UNKNOWN": []
+      },
+      "config": {
+        "use_adjudicated_refs": true,
+        "exclude_adjudicated": true,
+        "n_excluded_seen": 1
+      },
+      "results": [
+        {
+          "case_id": "F_021",
+          "verification": {
+            "status": "PASS",
+            "reason": "Z3 proved the claim within tolerance.",
+            "target_variable": "y",
+            "claimed_value": "33458",
+            "tolerance": 0.01
+          }
+        }
+      ]
+    }
+  },
+  "summary": {
+    "synthetic_cases": 14,
+    "synthetic_matches": 14,
+    "pilot_records": 32,
+    "pilot_exceptions": 0,
+    "unsat_core_check_passed": true,
+    "aggregation_checks_passed": true,
+    "adjudication_checks_passed": true
+  }
+}
